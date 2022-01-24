@@ -1,20 +1,29 @@
 import React from "react";
-import {profileAPI} from "../../api/api";
 import {connect} from "react-redux";
 import {setUsersProfile} from "../../redux/thirdSpace_reducer";
+import axios from "axios";
 
 class ThirdSpaceAPICont extends React.Component {
-    componentDidMount() {
-        let userId = 21048;
 
-        profileAPI.getUser(userId).then(data => {
-            return this.props.setUsersProfile(data);
-        });
+    componentDidMount() {
+        let userId = 21047;
+
+        /*        profileAPI.getUser(userId).then(data => {
+                    return this.props.setUsersProfile(data);
+                });*/
+
+        axios.get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
+            .then(resp => {
+                this.props.setUsersProfile(resp.data.fullName);
+            })
+            .catch(resp => {
+                this.props.setUsersProfile('ERROR!!');
+            })
     }
 
     render() {
-        debugger;
-        let info_set = this.props.profile.fullName;
+
+        let info_set = this.props.profile;
         return <div>{info_set}</div>
     }
 }
