@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/training-project/static/css/main.6f83be02.chunk.css",
-    "main.js": "/training-project/static/js/main.3e568ad0.chunk.js",
-    "main.js.map": "/training-project/static/js/main.3e568ad0.chunk.js.map",
+    "main.js": "/training-project/static/js/main.efe2af67.chunk.js",
+    "main.js.map": "/training-project/static/js/main.efe2af67.chunk.js.map",
     "runtime-main.js": "/training-project/static/js/runtime-main.4e3ce3dd.js",
     "runtime-main.js.map": "/training-project/static/js/runtime-main.4e3ce3dd.js.map",
-    "static/js/2.7aecf12b.chunk.js": "/training-project/static/js/2.7aecf12b.chunk.js",
-    "static/js/2.7aecf12b.chunk.js.map": "/training-project/static/js/2.7aecf12b.chunk.js.map",
+    "static/js/2.81aa6904.chunk.js": "/training-project/static/js/2.81aa6904.chunk.js",
+    "static/js/2.81aa6904.chunk.js.map": "/training-project/static/js/2.81aa6904.chunk.js.map",
     "static/js/3.750f4a3a.chunk.js": "/training-project/static/js/3.750f4a3a.chunk.js",
     "static/js/3.750f4a3a.chunk.js.map": "/training-project/static/js/3.750f4a3a.chunk.js.map",
     "index.html": "/training-project/index.html",
     "static/css/main.6f83be02.chunk.css.map": "/training-project/static/css/main.6f83be02.chunk.css.map",
-    "static/js/2.7aecf12b.chunk.js.LICENSE.txt": "/training-project/static/js/2.7aecf12b.chunk.js.LICENSE.txt",
+    "static/js/2.81aa6904.chunk.js.LICENSE.txt": "/training-project/static/js/2.81aa6904.chunk.js.LICENSE.txt",
     "static/media/Loading.0f2c83ef.gif": "/training-project/static/media/Loading.0f2c83ef.gif"
   },
   "entrypoints": [
     "static/js/runtime-main.4e3ce3dd.js",
-    "static/js/2.7aecf12b.chunk.js",
+    "static/js/2.81aa6904.chunk.js",
     "static/css/main.6f83be02.chunk.css",
-    "static/js/main.3e568ad0.chunk.js"
+    "static/js/main.efe2af67.chunk.js"
   ]
 }
