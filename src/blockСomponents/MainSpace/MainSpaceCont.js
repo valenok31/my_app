@@ -3,29 +3,26 @@ import {connect} from "react-redux";
 import {minus, plus, overmous} from "../../redux/mainSpace_reducer";
 import MainSpace from "./MainSpace";
 
-const mapStateToProps = (props) => {
-    return {
-        users:  props.mainSpace_reducer.users,
-        pageSize:  props.mainSpace_reducer.pageSize,
-        totalUsersCount:  props.mainSpace_reducer.totalUsersCount,
-        currentPage:  props.mainSpace_reducer.currentPage,
-        isFetching:  props.mainSpace_reducer.isFetching,
-        collorBox: props.mainSpace_reducer.collorBox,
+
+class MainSpaceCont extends React.Component {
+
+
+    render() {
+        return <MainSpace {...this.props}
+                          overmous={this.props.overmous}/>
     }
 }
 
-/*const mapDispatchToProps = (dispatch) => {
+
+const mapStateToProps = (props) => {
     return {
-        plus: () => {
-            dispatch(plus());
-        },
-        minus: () => {
-            dispatch(minus());
-        },
-
+        textForAnimation: props.mainSpace_reducer.textForAnimation,
+        setAnimationText: props.mainSpace_reducer.setAnimationText,
+        symbol: props.mainSpace_reducer.symbol,
     }
-}*/
+}
 
-export default connect(mapStateToProps, {plus, minus, overmous})(MainSpace);
+
+export default connect(mapStateToProps, {overmous})(MainSpaceCont);
 
 
