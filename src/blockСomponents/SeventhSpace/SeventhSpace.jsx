@@ -1,4 +1,6 @@
 import React, {useEffect, useState} from 'react';
+import style from './SeventhSpace.module.css';
+
 
 const SeventhSpace = (props) => {
 
@@ -7,9 +9,13 @@ const SeventhSpace = (props) => {
     const [time, setTime] = useState(0);
     const [start, setStart] = useState(false);
     const [laps, setLaps] = useState([]);
+    const [paused, setPaused] = useState('paused');
+    const [reset, setReset] = useState(false);
 
     const createLaps = laps.map((element, index) => {
-        return (<p key={index}>Laps {index + 1}: {element} <button onClick={() => remove(index)}>DELET</button></p>);
+        return (<p key={index}>Laps {index + 1}: {element}
+            <button onClick={() => remove(index)}>DELET</button>
+        </p>);
     });
 
     function remove(index) {
@@ -35,26 +41,30 @@ const SeventhSpace = (props) => {
     let msmTime = minut + ":" + sec + "." + mSec;
 
 
-    return <div>
+    return <div className={style.item}>
         <div>
             <h1>{msmTime}</h1>
         </div>
         <div>
             {
                 !start ? (<button onClick={() => {
-                    setStart(true)
+                    setStart(true);
+                    setPaused('running')
                 }}>Start
                 </button>) : (<button onClick={() => {
-                    setStart(false)
+                    setStart(false);
+                    setPaused('paused');
                 }}>Stop
                 </button>)
             }
 
 
-            <button onClick={() => {
+            <button disabled={start} onClick={() => {
                 setStart(false);
                 setTime(0);
                 setLaps([]);
+                setPaused('paused');
+                setReset(!reset)
             }}>Reset
             </button>
 
@@ -66,6 +76,9 @@ const SeventhSpace = (props) => {
         </div>
         <div>
             {createLaps}
+        </div>
+        <div className={reset ? style.arrowClock : style.arrowClock2} style={{animationPlayState: paused}}>
+            <span className={style.arrow}></span>
         </div>
 
     </div>
