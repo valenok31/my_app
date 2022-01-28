@@ -9,7 +9,8 @@ class MainSpaceCont extends React.Component {
 
     render() {
         return <MainSpace {...this.props}
-                          overmous={this.props.overmous}/>
+                          overmous={this.props.overmous}
+                          opacity = '0.5'/>
     }
 }
 

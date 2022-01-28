@@ -11,13 +11,18 @@ const MainSpace = (props) => {
     textForAnimation = textForAnimation.split(";");
 
     textForAnimation = textForAnimation.map((t, r) => {
-        console.log(symbol===r);
+        console.log(symbol === r);
         console.log("symbol " + symbol);
         console.log("r " + r);
         return <span
-            className={symbol.some((el) => r === el)  ? style.itemSpanGo : style.itemSpan}
+            style={symbol.some((el) => r === el) ? {
+                left: Math.random() * 600-300 + 'px',
+                transitionDuration: 1+Math.random() + '5s'
+            } : { }}
+            className={symbol.some((el) => r === el) ? style.itemSpanGo : style.itemSpan}
             onMouseOver={() => {
-                props.overmous(r)
+                symbol.some((el) => r === el) ? console.log('No') : props.overmous(r)
+
             }}
             key={r}>
             {t}
