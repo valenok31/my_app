@@ -1,58 +1,150 @@
 .item {
-    width: 100%;
+    /*width: 100%;
     height: 500px;
     text-align: center;
-padding-top: 30px;
+    padding-top: 30px;*/
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+
 }
+
+.item__clock {
+/*    display: inline-block;
+    border: #61dafb 2px solid;
+    width: 600px;*/
+    border-radius: 15px;
+    text-align: center;
+    grid-area: 1 / 4 / 6 / 6;
+}
+
 .arrowClock {
-    margin:20px auto;
-    width: 200px;
-    height: 200px;
+    /*    width: 200px;
+        height: 200px;
+        margin: 20px auto;
+        display: inline-block;*/
+
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.arrowClock div {
+    /* display: inline-block;*/
+
     border-radius: 100px;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+    animation-play-state: paused;
+    /*text-align: center;*/
+
+
+}
+
+
+.arrowClock__arrow_min_1 {
+    background-color: #61dafb;
     animation-name: rotation;
     animation-duration: 60s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    background-color: #61dafb;
-    animation-play-state: paused;
-    text-align: center;
-}
-.arrowClock2 {
-    margin:20px auto;
+    margin: 45px auto;
     width: 200px;
     height: 200px;
-    border-radius: 100px;
-    animation-name: rotation2;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    background-color: #61dafb;
-    animation-play-state: paused;
-    text-align: center;
+    grid-area: 1 / 1 / 6 / 6;
 }
+
+.arrowClock__arrow_min_2 {
+    background-color: #61dafb;
+    animation-name: rotation2;
+    animation-duration: 60s;
+    margin: 45px auto;
+    width: 200px;
+    height: 200px;
+    grid-area: 1 / 1 / 6 / 6;
+}
+
+.arrowClock__arrow_sec_1 {
+    width: 150px;
+    height: 150px;
+    animation-duration: 6s;
+    background-color: #61dafb;
+    animation-name: rotation;
+    margin: 70px auto;
+    grid-area: 1 / 1 / 6 / 6;
+}
+
+.arrowClock__arrow_sec_2 {
+    width: 150px;
+    height: 150px;
+    animation-duration: 6s;
+    background-color: #61dafb;
+    animation-name: rotation2;
+    margin: 70px auto;
+    grid-area: 1 / 1 / 6 / 6;
+}
+
+.arrowClock__arrow_milsec_1 {
+    width: 100px;
+    height: 100px;
+    animation-duration: 1s;
+    background-color: #61dafb;
+    animation-name: rotation;
+    margin: 95px auto;
+    grid-area: 1 / 1 / 6 / 6;
+}
+
+.arrowClock__arrow_milsec_2 {
+    width: 100px;
+    height: 100px;
+    animation-duration: 1s;
+    background-color: #61dafb;
+    animation-name: rotation2;
+    margin: 95px auto;
+    grid-area: 1 / 1 / 6 / 6;
+}
+
 @keyframes rotation {
     0% {
-        transform:rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-        transform:rotate(360deg);
+        transform: rotate(360deg);
     }
 
 }
+
 @keyframes rotation2 {
     0% {
-        transform:rotate(0deg);
+        transform: rotate(0deg);
     }
     100% {
-        transform:rotate(360deg);
+        transform: rotate(360deg);
     }
 
 }
 
-.arrow{
+.arrow {
     display: inline-block;
-    width: 5px;
-    height: 100px;
+    width: 3px;
+    height: 40px;
     background-color: red;
 
+}
+
+
+.itemere {
+    grid-area: 1 / 1 / 6 / 4;
+    text-align: center;
+}
+
+.example {
+}
+
+.workingArea {
+}
+
+.result {
 }
