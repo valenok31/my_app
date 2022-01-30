@@ -1,6 +1,8 @@
 .item {
-    min-height: calc(100vh - 50px);
+    min-height: calc(100vh - 90px);
     background-color: chartreuse;
+    padding: 20px;
+
 }
 
 /*
@@ -64,6 +66,7 @@
 }*/
 
 .calculator_body {
+    margin: 0 auto;
     display: grid;
     grid-template-columns:  repeat(4, 1fr);
     grid-template-rows: repeat(7, 1fr);
