@@ -23,16 +23,16 @@
 
 .fly div {
     position: relative;
-    background-color: black;
+    /*background-color: black;*/
     border-radius: 3px;
 }
 
 .fly0 {
     width: 2px;
     height: 6px;
-    border-radius: 0px;
     left: 2px;
     top: -43px;
+    background-color: black;
 }
 
 .fly1 {
@@ -40,6 +40,7 @@
     height: 6px;
     left: -3px;
     top: -3px;
+    background-color: black;
 }
 
 .fly2 {
@@ -47,6 +48,7 @@
     height: 6px;
     left: 3px;
     top: -9px;
+    background-color: black;
 }
 
 .fly3 {
@@ -55,6 +57,7 @@
     left: -3px;
     top: -9px;
     transform: rotate(45deg);
+    background-color: black;
 }
 
 .fly4 {
@@ -63,6 +66,7 @@
     left: 3px;
     top: -21px;
     transform: rotate(-45deg);
+    background-color: black;
 }
 
 
@@ -72,6 +76,7 @@
     left: 3px;
     top: -47px;
     transform: rotate(45deg);
+    background-color: black;
 }
 
 .fly6 {
@@ -80,6 +85,7 @@
     left: 2px;
     top: -74px;
     transform: rotate(-45deg);
+    background-color: black;
 }
 
 .fly7 {
@@ -88,6 +94,7 @@
     left: -12px;
     top: -89px;
     transform: rotate(14deg);
+    background-color: black;
 }
 
 .fly8 {
@@ -96,6 +103,15 @@
     left: 0px;
     top: -90px;
     transform: rotate(-14deg);
+    background-color: black;
+}
+
+.tell{
+    position: absolute;
+    width: 50px;
+    height: 40px;
+    background-color: #c1f9ff;
+    border-radius: 0px 50px 50px 50px;
 }
 
 
