@@ -1,10 +1,15 @@
 import React, {useState} from 'react';
 import style from './SixthSpace.module.css'
 import Fly from "../SecondarySpace/Fly";
+import DeadFly from "../SecondarySpace/DeadFly";
 
 
 const SixthSpace = (props) => {
     let initialState = 0;
+    let initialStateDead = 0;
+    let x = 300;
+    let y = 300;
+    let coordXY = [];
     let tellFly = [
         'Hi',
         'Hello!',
@@ -14,6 +19,16 @@ const SixthSpace = (props) => {
         'oh no!',
 
     ]
+
+    let tellFly2 = [
+        {
+            id: 1,
+            tell: 'Hi',
+            x: null,
+            y: null
+        },
+
+    ]
     /*    let tellFly = {
             0: 'Hi',
             1: 'Hello!',
@@ -21,6 +36,9 @@ const SixthSpace = (props) => {
             3: 'what do you need?'
         }*/
     const [counter, setCounter] = useState(initialState);
+    const [counterDeadFly, setCounterDeadFly] = useState(initialState)
+    const [coordDeadFlyX, setCoordDeadFlyX] = useState([])
+    const [coordDeadFlyY, setCoordDeadFlyY] = useState([])
 
 
     const slog = () => {
@@ -38,12 +56,25 @@ const SixthSpace = (props) => {
         setCounter(getCount => getCount - (slog()))
     }
 
-    const refresh = () => {
+
+    const refresh = (xD, yD) => {
         setCounter(getCount => getCount - 1);
+        setCounterDeadFly(getCountDead => getCountDead + 1);
+        coordDeadFlyX.push(xD)
+        coordDeadFlyY.push(yD)
+
+        setCoordDeadFlyX(coordDeadFlyX);
+        setCoordDeadFlyY(coordDeadFlyY);
+
+        console.log(coordDeadFlyX);
+
     }
 
     const reset = () => {
-        setCounter(initialState)
+        setCounter(initialState);
+        setCounterDeadFly(initialState);
+        setCoordDeadFlyX([]);
+        setCoordDeadFlyY([]);
     }
 
 
@@ -52,10 +83,16 @@ const SixthSpace = (props) => {
         flies.push(<Fly i={i} tellFly={tellFly} refresh={refresh}/>);
     }
 
+    let deadFlies = [];
+    for (let d = 0; d < counterDeadFly; d++) {
+        deadFlies.push(<DeadFly d={d} x={coordDeadFlyX[d]} y={coordDeadFlyY[d]}/>);
+    }
+
     return (
         <div className={style.space}>
             <div className={style.flies}>МУХИ
                 {flies}
+                {deadFlies}
             </div>
             <div className={style.numberFlies}>
                 <span>Количество мух: {counter}</span>

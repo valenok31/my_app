@@ -8,7 +8,10 @@ const Fly = (props) => {
     return <>
         <div className={style.fly} key={i}
              title={props.tellFly[i]}
-             onClick={props.refresh}
+             onClick={
+                 (e) => {
+                     props.refresh(e.clientX, e.clientY);
+                 }}
 
              style={{
                  left: Math.random() * 92 + '%',

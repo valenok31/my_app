@@ -115,6 +115,35 @@
 }
 
 
+.deadFly{
+    position: absolute;
+    width: 25px;
+    height: 30px;
+    color: #009a44;
+    background-color: #ff3c00;
+    border-radius: 20px;
+    display: inline-block;
+}
+.deadFly div{
+    width: 15px;
+    height: 55px;
+    color: #009a44;
+    background-color: #ff3c00;
+    border-radius: 20px;
+    position: relative;
+}
+.blob1{
+    transform: rotate(14deg);
+    top: -10px;
+}
+.blob2{
+    transform: rotate(45deg);
+    top: -20px;
+}
+.blob3{
+    transform: rotate(90deg);
+    top: -40px;
+}
 .numberFlies {
 
 }
