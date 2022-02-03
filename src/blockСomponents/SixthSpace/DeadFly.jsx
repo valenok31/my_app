@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import style from "../SixthSpace/SixthSpace.module.css";
+import style from "./SixthSpace.module.css";
 
 
 const DeadFly = (props) => {

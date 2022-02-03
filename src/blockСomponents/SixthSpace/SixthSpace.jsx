@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import style from './SixthSpace.module.css'
-import Fly from "../SecondarySpace/Fly";
-import DeadFly from "../SecondarySpace/DeadFly";
+import Fly from "./Fly";
+import DeadFly from "./DeadFly";
 
 
 const SixthSpace = (props) => {

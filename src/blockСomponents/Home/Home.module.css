@@ -1,0 +1,29 @@
+.item {
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    flex-flow: row wrap;
+
+
+
+    background-color: #e2ff9f;
+    height: calc(100vh - 50px);
+
+}
+
+.nLink{
+    width: 300px;
+    height: 200px;
+    border: 2px solid red;
+    margin: auto;
+    display: flex;
+
+}
+
+.nLink div {
+margin: auto;
+}
+.nLink div:hover {
+margin: auto;
+    border-color: #00de65;
+}

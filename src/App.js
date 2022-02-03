@@ -8,6 +8,8 @@ import FourthSpaceCont from "./blockСomponents/FourthSpace/FourthSpaceCont";
 import FifthSpaceCont from "./blockСomponents/FifthSpace/FifthSpaceCont";
 import SixthSpaceCont from "./blockСomponents/SixthSpace/SixthSpaceCont";
 import SeventhSpaceCont from "./blockСomponents/SeventhSpace/SeventhSpaceCont";
+import EighthSpaceCont from "./blockСomponents/EighthSpace/EighthSpaceCont";
+import Home from "./blockСomponents/Home/Home";
 
 
 let App = (props) => {
@@ -16,6 +18,7 @@ let App = (props) => {
             <TopMenu/>
             <div>
                 <Routes>
+                    <Route path="/home" element={<Home />}/>
                     <Route path="/main" element={<MainSpaceCont/>}/>
                     <Route path="/secondary" element={<SecondarySpaceCont/>}/>
                     <Route path="/third" element={<ThirdSpaceCont/>}/>
@@ -23,6 +26,7 @@ let App = (props) => {
                     <Route path="/fifth" element={<FifthSpaceCont/>}/>
                     <Route path="/sixth" element={<SixthSpaceCont/>}/>
                     <Route path="/seventh" element={<SeventhSpaceCont/>}/>
+                    <Route path="/eighth" element={<EighthSpaceCont/>}/>
                 </Routes>
             </div>
         </div>
