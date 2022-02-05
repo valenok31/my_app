@@ -2,6 +2,8 @@ import React from "react";
 import {connect} from "react-redux";
 import {setDataSys, setUsersProfile} from "../../redux/ninthSpace_reducer";
 import axios from "axios";
+import {togglesIsFetching} from "../../redux/generalSetting_reducer";
+import Loader from "../Loader/Loader";
 
 class NinthSpaceAPICont extends React.Component {
 
@@ -11,7 +13,7 @@ class NinthSpaceAPICont extends React.Component {
         /*        profileAPI.getUser(userId).then(data => {
                     return this.props.setUsersProfile(data);
                 });*/
-
+        this.props.togglesIsFetching(true);
         const instance = axios.create({
             baseURL: `http://api.openweathermap.org/data/2.5/weather?appid=162fccc9d12d11b8815f8c9684922df6&units=metric&lang=ru&`,
         });
@@ -20,10 +22,12 @@ class NinthSpaceAPICont extends React.Component {
             .then(resp => {
                 this.props.setUsersProfile(resp.data.main, resp.data.wind);
                 this.props.setDataSys(resp.data.sys);
+                this.props.togglesIsFetching(false);
             })
             .catch(resp => {
                 this.props.setUsersProfile('ERROR!!');
                 this.props.setDataSys('ERROR!!');
+                this.props.togglesIsFetching(false);
             })
     }
 
@@ -42,11 +46,17 @@ class NinthSpaceAPICont extends React.Component {
         if(info_wind.deg>202.5 && info_wind.deg<247.5){degString = 'юго-западный'}
         if(info_wind.deg>247.5 && info_wind.deg<292.5){degString = 'западный'}
         if(info_wind.deg>292.5 && info_wind.deg<337.5){degString = 'северо-западный'}
+        let fetching = this.props.isFetching;
+        let temp = <span>{Math.floor(info_set.temp)} &#176;C</span>;
+        let feels_like = <span>{Math.floor(info_set.feels_like)} &#176;C</span>;
+        let pressure = <span>{Math.floor(info_set.pressure*0.750062)} мм рт.ст.</span>;
+
 
         return <>
-            <div>Температура: {Math.floor(info_set.temp)} &#176;C</div>
-            <div>Ощущается как: {Math.floor(info_set.feels_like)} &#176;C</div>
-            <div>Давление: {Math.floor(info_set.pressure*0.750062)} мм рт.ст.</div>
+            {this.props.isFetching ? <Loader/> : null}
+            <div>Температура: {fetching ? `...загрузка` : temp} </div>
+            <div>Ощущается как: {fetching ? `...загрузка` : feels_like}</div>
+            <div>Давление: {fetching ? `...загрузка` : pressure}</div>
             <div>Влажность: {info_set.humidity} %</div>
             <div>Ветер {degString} {info_wind.speed} м/с</div>
         </>
@@ -56,7 +66,8 @@ class NinthSpaceAPICont extends React.Component {
 let mapStateToProps = (state) => ({
     profile: state.ninthSpace_reducer.profile,
     wind: state.ninthSpace_reducer.wind,
-    sys: state.ninthSpace_reducer.sys
+    sys: state.ninthSpace_reducer.sys,
+    isFetching: state.generalSetting_reducer.isFetching
 })
 
-export default connect(mapStateToProps, {setUsersProfile, setDataSys})(NinthSpaceAPICont)
+export default connect(mapStateToProps, {setUsersProfile, setDataSys, togglesIsFetching})(NinthSpaceAPICont)
