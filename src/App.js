@@ -10,6 +10,7 @@ import SixthSpaceCont from "./blockСomponents/SixthSpace/SixthSpaceCont";
 import SeventhSpaceCont from "./blockСomponents/SeventhSpace/SeventhSpaceCont";
 import EighthSpaceCont from "./blockСomponents/EighthSpace/EighthSpaceCont";
 import Home from "./blockСomponents/Home/Home";
+import NinthSpaceCont from "./blockСomponents/NinthSpace/NinthSpaceCont";
 
 
 let App = (props) => {
@@ -27,6 +28,7 @@ let App = (props) => {
                     <Route path="/sixth" element={<SixthSpaceCont/>}/>
                     <Route path="/seventh" element={<SeventhSpaceCont/>}/>
                     <Route path="/eighth" element={<EighthSpaceCont/>}/>
+                    <Route path="/ninth" element={<NinthSpaceCont/>}/>
                 </Routes>
             </div>
         </div>

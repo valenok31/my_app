@@ -6,6 +6,7 @@ import fourthSpace_reducer from "./fourthSpace_reducer";
 import generalSetting_reducer from "./generalSetting_reducer";
 import fifthSpace_reducer from "./fifthSpace_reducer";
 import eighthSpace_reducer from "./eighthSpace_reducer";
+import ninthSpace_reducer from "./ninthSpace_reducer";
 
 let reducers = combineReducers({
     mainSpace_reducer: mainSpace_reducer,
@@ -15,6 +16,7 @@ let reducers = combineReducers({
     generalSetting_reducer: generalSetting_reducer,
     fifthSpace_reducer: fifthSpace_reducer,
     eighthSpace_reducer: eighthSpace_reducer,
+    ninthSpace_reducer: ninthSpace_reducer,
 });
 
 let store = createStore(reducers);

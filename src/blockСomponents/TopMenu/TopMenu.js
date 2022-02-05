@@ -14,6 +14,7 @@ let TopMenu = () => {
         <NavLink to='/sixth' className={style.nLink}>sixth</NavLink>
         <NavLink to='/seventh' className={style.nLink}>seventh</NavLink>
         <NavLink to='/eighth' className={style.nLink}>eighth</NavLink>
+        <NavLink to='/ninth' className={style.nLink}>ninth</NavLink>
 
     </div>
 }
