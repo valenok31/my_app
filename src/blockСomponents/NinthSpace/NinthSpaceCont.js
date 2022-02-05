@@ -48,7 +48,6 @@ class NinthSpaceAPICont extends React.Component {
             <div>Ощущается как: {Math.floor(info_set.feels_like)} &#176;C</div>
             <div>Давление: {Math.floor(info_set.pressure*0.750062)} мм рт.ст.</div>
             <div>Влажность: {info_set.humidity} %</div>
-            <div>Страна: {info_sys.country}</div>
             <div>Ветер {degString} {info_wind.speed} м/с</div>
         </>
     }
