@@ -35,42 +35,63 @@ class NinthSpaceAPICont extends React.Component {
         let info_wind = this.props.wind;
         let degString = null;
         console.log(info_wind);
-        if(info_wind.deg>337.5 && info_wind.deg<22.5){degString = 'северный'}
-        if(info_wind.deg>22.5 && info_wind.deg<67.5){degString = 'северо-восточный'}
-        if(info_wind.deg>67.5 && info_wind.deg<112.5){degString = 'восточный'}
-        if(info_wind.deg>112.5 && info_wind.deg<157.5){degString = 'юго-восточный'}
-        if(info_wind.deg>157.5 && info_wind.deg<202.5){degString = 'южный'}
-        if(info_wind.deg>202.5 && info_wind.deg<247.5){degString = 'юго-западный'}
-        if(info_wind.deg>247.5 && info_wind.deg<292.5){degString = 'западный'}
-        if(info_wind.deg>292.5 && info_wind.deg<337.5){degString = 'северо-западный'}
+        if (info_wind.deg > 337.5 && info_wind.deg < 22.5) {
+            degString = 'северный'
+        }
+        if (info_wind.deg > 22.5 && info_wind.deg < 67.5) {
+            degString = 'северо-восточный'
+        }
+        if (info_wind.deg > 67.5 && info_wind.deg < 112.5) {
+            degString = 'восточный'
+        }
+        if (info_wind.deg > 112.5 && info_wind.deg < 157.5) {
+            degString = 'юго-восточный'
+        }
+        if (info_wind.deg > 157.5 && info_wind.deg < 202.5) {
+            degString = 'южный'
+        }
+        if (info_wind.deg > 202.5 && info_wind.deg < 247.5) {
+            degString = 'юго-западный'
+        }
+        if (info_wind.deg > 247.5 && info_wind.deg < 292.5) {
+            degString = 'западный'
+        }
+        if (info_wind.deg > 292.5 && info_wind.deg < 337.5) {
+            degString = 'северо-западный'
+        }
         let fetching = this.props.isFetching;
         let temp = <span>{Math.floor(info_set.temp)} &#176;C</span>;
         let feels_like = <span>{Math.floor(info_set.feels_like)} &#176;C</span>;
-        let pressure = <span>{Math.floor(info_set.pressure*0.750062)} мм рт.ст.</span>;
+        let pressure = <span>{Math.floor(info_set.pressure * 0.750062)} мм рт.ст.</span>;
         let humidity = <span>{info_set.humidity} %</span>
         let windSpeed = <span>{degString} {info_wind.speed} м/с</span>
         let sunriseUNIX = info_sys.sunrise;
-        let tum = 1970+(sunriseUNIX/86400/365.25);  /* tum - time Unix middle */
-        let tum2 = (tum - Math.floor(tum))*365.25;  /* tum - time Unix middle */
-        let sunriseUTC = 60*((60*24*(tum2 - Math.floor(tum2))-60)-59)
- /*       tum2 = 32*/
-        let arrMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
-      const  reducer = (a,b,i) => {
-          if(a<=b){arrMonth.length = i; b=0}
-          return  a - b;
-      }
+        let tum = 1970 + (sunriseUNIX / 86400 / 365.25);  /* tum - time Unix middle */
+        let tum2 = (tum - Math.floor(tum)) * 365.25;  /* tum - time Unix middle */
+        let sunriseUTC = 60 * ((60 * 24 * (tum2 - Math.floor(tum2)) - 60) - 59)
+        /* tum2 = 32*/
+
+        let arrMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        const reducer = (a, b, i) => {
+            if (a <= b) {
+                arrMonth.length = i;
+                b = 0;
+                console.log(i);
+            }
+            return a - b;
+        }
 
 
-
-        let day =  Math.floor(arrMonth.reduce(reducer,tum2));
-        let month =  arrMonth.length+1;
+        let day = "0" + Math.floor(arrMonth.reduce(reducer, tum2));
+        let month = "0" + arrMonth.length + 1;
         let years = Math.floor(tum);
 
-        let hour = Math.floor((arrMonth.reduce(reducer,tum2) - day)*24)
-        let minute = ((arrMonth.reduce(reducer,tum2) - day)*24-hour)*60;
-        let second = (minute - Math.floor(minute))*60
+        let hour = "0" + Math.floor((arrMonth.reduce(reducer, tum2) - day) * 24)
+        let minute = "0" + ((arrMonth.reduce(reducer, tum2) - day) * 24 - hour) * 60;
+        let second = "0" + (minute - Math.floor(minute)) * 60
 
-        let sunrise = <span>{day} {month} {years} {hour}:{Math.floor(minute)}:{Math.floor(second)}</span>
+        let sunrise =
+            <span>{day.slice(-2)}.{month.slice(-2)}.{years} {hour.slice(-2)}:{("0" + Math.floor(minute)).slice(-2)}:{("0" + Math.floor(second)).slice(-2)}</span>
         let sunset = <span>{info_sys.sunset}</span>
 
 
@@ -82,6 +103,7 @@ class NinthSpaceAPICont extends React.Component {
             <div>Влажность: {fetching ? `...загрузка` : humidity}</div>
             <div>Ветер {fetching ? `...загрузка` : windSpeed}</div>
             <div>Восход {fetching ? `...загрузка` : sunrise}</div>
+            <div>Восход {fetching ? `...загрузка` : sunriseUNIX}</div>
             <div>Заход {fetching ? `...загрузка` : sunset}</div>
         </>
     }
