@@ -49,6 +49,29 @@ class NinthSpaceAPICont extends React.Component {
         let pressure = <span>{Math.floor(info_set.pressure*0.750062)} мм рт.ст.</span>;
         let humidity = <span>{info_set.humidity} %</span>
         let windSpeed = <span>{degString} {info_wind.speed} м/с</span>
+        let sunriseUNIX = info_sys.sunrise;
+        let tum = 1970+(sunriseUNIX/86400/365.25);  /* tum - time Unix middle */
+        let tum2 = (tum - Math.floor(tum))*365.25;  /* tum - time Unix middle */
+        let sunriseUTC = 60*((60*24*(tum2 - Math.floor(tum2))-60)-59)
+ /*       tum2 = 32*/
+        let arrMonth = [31,28,31,30,31,30,31,31,30,31,30,31];
+      const  reducer = (a,b,i) => {
+          if(a<=b){arrMonth.length = i; b=0}
+          return  a - b;
+      }
+
+
+
+        let day =  Math.floor(arrMonth.reduce(reducer,tum2));
+        let month =  arrMonth.length+1;
+        let years = Math.floor(tum);
+
+        let hour = Math.floor((arrMonth.reduce(reducer,tum2) - day)*24)
+        let minute = ((arrMonth.reduce(reducer,tum2) - day)*24-hour)*60;
+        let second = (minute - Math.floor(minute))*60
+
+        let sunrise = <span>{day} {month} {years} {hour}:{Math.floor(minute)}:{Math.floor(second)}</span>
+        let sunset = <span>{info_sys.sunset}</span>
 
 
         return <>
@@ -58,6 +81,8 @@ class NinthSpaceAPICont extends React.Component {
             <div>Давление: {fetching ? `...загрузка` : pressure}</div>
             <div>Влажность: {fetching ? `...загрузка` : humidity}</div>
             <div>Ветер {fetching ? `...загрузка` : windSpeed}</div>
+            <div>Восход {fetching ? `...загрузка` : sunrise}</div>
+            <div>Заход {fetching ? `...загрузка` : sunset}</div>
         </>
     }
 }
