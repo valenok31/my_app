@@ -10,12 +10,9 @@ class NinthSpaceAPICont extends React.Component {
     componentDidMount() {
         let kayAPI = '162fccc9d12d11b8815f8c9684922df6';
 
-        /*        profileAPI.getUser(userId).then(data => {
-                    return this.props.setUsersProfile(data);
-                });*/
         this.props.togglesIsFetching(true);
         const instance = axios.create({
-            baseURL: `http://api.openweathermap.org/data/2.5/weather?appid=162fccc9d12d11b8815f8c9684922df6&units=metric&lang=ru&`,
+            baseURL: `http://api.openweathermap.org/data/2.5/weather?appid=${kayAPI}&units=metric&lang=ru&`,
         });
 
         instance.get(`&lat=53.426102&lon=83.936766`)
@@ -50,15 +47,17 @@ class NinthSpaceAPICont extends React.Component {
         let temp = <span>{Math.floor(info_set.temp)} &#176;C</span>;
         let feels_like = <span>{Math.floor(info_set.feels_like)} &#176;C</span>;
         let pressure = <span>{Math.floor(info_set.pressure*0.750062)} мм рт.ст.</span>;
+        let humidity = <span>{info_set.humidity} %</span>
+        let windSpeed = <span>{degString} {info_wind.speed} м/с</span>
 
 
         return <>
             {this.props.isFetching ? <Loader/> : null}
-            <div>Температура: {fetching ? `...загрузка` : temp} </div>
+            <div>Температура: {fetching ? `...загрузка` : temp}</div>
             <div>Ощущается как: {fetching ? `...загрузка` : feels_like}</div>
             <div>Давление: {fetching ? `...загрузка` : pressure}</div>
-            <div>Влажность: {info_set.humidity} %</div>
-            <div>Ветер {degString} {info_wind.speed} м/с</div>
+            <div>Влажность: {fetching ? `...загрузка` : humidity}</div>
+            <div>Ветер {fetching ? `...загрузка` : windSpeed}</div>
         </>
     }
 }
