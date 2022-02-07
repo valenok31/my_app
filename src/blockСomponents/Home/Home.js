@@ -13,7 +13,7 @@ let Home = () => {
         <NavLink to='/fifth' className={style.nLink}><div>Счетчик букв CountLetters</div></NavLink>
         <NavLink to='/sixth' className={style.nLink}><div>Мухи</div></NavLink>
         <NavLink to='/seventh' className={style.nLink}><div>Тренажер скоростного набора кода</div></NavLink>
-        <NavLink to='/eighth' className={style.nLink}><div>Игра звезные воины с буквами</div></NavLink>
+        <NavLink to='/tenth' className={style.nLink}><div>Курсы валют</div></NavLink>
 
 
     </div>
