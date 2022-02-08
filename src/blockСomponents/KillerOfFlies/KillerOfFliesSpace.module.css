@@ -1,0 +1,207 @@
+.space {
+    width: 100%;
+    min-height: calc(100vh - 90px);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.flies {
+    width: 100%;
+    min-height: calc(80vh);
+    margin: 0 auto;
+}
+
+.fly {
+    position: absolute;
+    width: 6px;
+    height: 16px;
+    color: #009a44;
+    background-color: black;
+    border-radius: 3px;
+    display: inline-block;
+    cursor: grab;
+}
+
+.fly:active{
+    cursor: grabbing;
+}
+
+.fly div {
+    position: relative;
+    /*background-color: black;*/
+    border-radius: 3px;
+}
+
+.fly0 {
+    width: 2px;
+    height: 6px;
+    left: 2px;
+    top: -43px;
+    background-color: black;
+}
+
+.fly1 {
+    width: 6px;
+    height: 6px;
+    left: -3px;
+    top: -3px;
+    background-color: black;
+}
+
+.fly2 {
+    width: 6px;
+    height: 6px;
+    left: 3px;
+    top: -9px;
+    background-color: black;
+}
+
+.fly3 {
+    width: 6px;
+    height: 12px;
+    left: -3px;
+    top: -9px;
+    transform: rotate(45deg);
+    background-color: black;
+}
+
+.fly4 {
+    width: 6px;
+    height: 12px;
+    left: 3px;
+    top: -21px;
+    transform: rotate(-45deg);
+    background-color: black;
+}
+
+
+.fly5 {
+    width: 1px;
+    height: 27px;
+    left: 3px;
+    top: -47px;
+    transform: rotate(45deg);
+    background-color: black;
+}
+
+.fly6 {
+    width: 1px;
+    height: 27px;
+    left: 2px;
+    top: -74px;
+    transform: rotate(-45deg);
+    background-color: black;
+}
+
+.fly7 {
+    width: 18px;
+    height: 1px;
+    left: -12px;
+    top: -89px;
+    transform: rotate(14deg);
+    background-color: black;
+}
+
+.fly8 {
+    width: 18px;
+    height: 1px;
+    left: 0px;
+    top: -90px;
+    transform: rotate(-14deg);
+    background-color: black;
+}
+
+.tell{
+    position: absolute;
+    width: 50px;
+    height: 40px;
+    background-color: #c1f9ff;
+    border-radius: 0px 50px 50px 50px;
+}
+
+
+.deadFly{
+    position: absolute;
+    width: 25px;
+    height: 30px;
+    color: #009a44;
+    background-color: #ff3c00;
+    border-radius: 20px;
+    display: inline-block;
+    cursor: grab;
+}
+.deadFly:active{
+    cursor: grabbing;
+}
+
+
+.deadFly div{
+    width: 15px;
+    height: 55px;
+    color: #009a44;
+    background-color: #ff3c00;
+    border-radius: 20px;
+    position: relative;
+}
+.blob1{
+    transform: rotate(14deg);
+    top: -10px;
+}
+.blob2{
+    transform: rotate(45deg);
+    top: -20px;
+}
+.blob3{
+    transform: rotate(90deg);
+    top: -40px;
+}
+.numberFlies {
+
+}
+
+.countingFlies {
+
+}
+
+
+.targetForShooting{
+
+}
+
+
+.target__10{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    top: calc(50vh - 200px);
+    left: calc(50vw - 200px);
+    border-radius: 300px;
+    background-color: #eab773;
+}
+.target__40{
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    top: calc(50vh - 150px);
+    left: calc(50vw - 150px);
+    border-radius: 300px;
+    background-color: #c1f9ff;
+}
+.target__70{
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    top: calc(50vh - 100px);
+    left: calc(50vw - 100px);
+    border-radius: 300px;
+    background-color: #dd00ff;
+}
+.target__100{
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    top: calc(50vh - 50px);
+    left: calc(50vw - 50px);
+    border-radius: 300px;
+    background-color: chartreuse;
+}

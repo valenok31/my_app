@@ -32,11 +32,8 @@ class NinthSpaceAPICont extends React.Component {
         let info_set = this.props.profile;
         let info_sys = this.props.sys;
         let info_wind = this.props.wind;
-        let degString = null;
+        let degString = 'северный';
         console.log(info_wind);
-        if (info_wind.deg > 337.5 && info_wind.deg < 22.5) {
-            degString = 'северный'
-        }
         if (info_wind.deg > 22.5 && info_wind.deg < 67.5) {
             degString = 'северо-восточный'
         }
