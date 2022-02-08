@@ -57,7 +57,7 @@ const KillerOfFlies = (props) => {
 
     const reset = () => {
         setCounter(initialState);
-        setCounterDeadFly(initialState);
+        setCounterDeadFly(initialStateDead);
         setCoordDeadFlyX([]);
         setCoordDeadFlyY([]);
     }
@@ -101,8 +101,8 @@ const calcPoints = function (coordDeadFlyXs, coordDeadFlyYs) {
                 <div className={style.target__100}></div>
             </div>
             <div className={style.flies}>МУХИ
-                {flies}
                 {deadFlies}
+                {flies}
             </div>
             {totalPoints}
             <div className={style.numberFlies}>
