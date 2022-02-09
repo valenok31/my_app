@@ -3,7 +3,23 @@ import style from "./KillerOfFliesSpace.module.css";
 
 
 const Fly = (props) => {
+
     let i = props.i;
+    let coordDeadFlyX = props.coordDeadFlyX;
+    let coordDeadFlyY = props.coordDeadFlyY;
+    let counterDeadFly = props.counterDeadFly - 1;
+    const screenWidth = document.documentElement.clientWidth;
+    const screenHeight = document.documentElement.clientHeight;
+    console.log(props.calcPoints(0, 0, coordDeadFlyX[counterDeadFly], coordDeadFlyY[counterDeadFly]));
+
+    let styleLeft = () => {
+        return Math.random() * (screenWidth - 100)   + 'px'
+    }
+
+    let styleTop = () => {
+        return Math.random() * (screenHeight - 100)   + 'px';
+    }
+
 
     return <>
         <div className={style.fly} key={i}
@@ -14,8 +30,8 @@ const Fly = (props) => {
                  }}
 
              style={{
-                 left: Math.random() * 92 + '%',
-                 top: Math.random() * 85 + 'vh',
+                 left: styleLeft(),
+                 top: styleTop(),
                  transform: 'rotate(' + Math.random() * 360 + 'deg)',
              }}
 

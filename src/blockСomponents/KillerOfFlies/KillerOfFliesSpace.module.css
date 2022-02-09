@@ -176,7 +176,7 @@
     top: calc(50vh - 200px);
     left: calc(50vw - 200px);
     border-radius: 300px;
-    background-color: #eab773;
+    background-color: #97cdde;
 }
 .target__40{
     position: absolute;
@@ -185,7 +185,7 @@
     top: calc(50vh - 150px);
     left: calc(50vw - 150px);
     border-radius: 300px;
-    background-color: #c1f9ff;
+    background-color: rgb(0, 102, 255);
 }
 .target__70{
     position: absolute;
@@ -194,7 +194,7 @@
     top: calc(50vh - 100px);
     left: calc(50vw - 100px);
     border-radius: 300px;
-    background-color: #dd00ff;
+    background-color: #97cdde;
 }
 .target__100{
     position: absolute;
@@ -203,5 +203,5 @@
     top: calc(50vh - 50px);
     left: calc(50vw - 50px);
     border-radius: 300px;
-    background-color: chartreuse;
+    background-color: #0066ff;
 }
