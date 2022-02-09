@@ -13,11 +13,11 @@ const Fly = (props) => {
     console.log(props.calcPoints(0, 0, coordDeadFlyX[counterDeadFly], coordDeadFlyY[counterDeadFly]));
 
     let styleLeft = () => {
-        return Math.random() * (screenWidth - 100)   + 'px'
+        return Math.random() * (screenWidth - 100)+50   + 'px'
     }
 
     let styleTop = () => {
-        return Math.random() * (screenHeight - 100)   + 'px';
+        return Math.random() * (screenHeight - 100)+50   + 'px';
     }
 
 

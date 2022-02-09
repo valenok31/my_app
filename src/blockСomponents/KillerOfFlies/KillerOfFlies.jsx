@@ -120,13 +120,14 @@ const KillerOfFlies = (props) => {
                 {deadFlies}
                 {flies}
             </div>
-            {totalPoints}
+
             <div className={style.numberFlies}>
+                <span>Очков: {totalPoints}</span><br/>
                 <span>Количество мух: {counter}</span>
             </div>
             <div className={style.countingFlies}>
-                <button onClick={plus}>+</button>
-                <button onClick={minus}>-</button>
+{/*                <button onClick={plus}>+</button>
+                <button onClick={minus}>-</button>*/}
                 <button onClick={reset}>reset</button>
             </div>
         </div>
