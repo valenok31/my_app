@@ -12,7 +12,6 @@ const DeadFly = (props) => {
                  left: props.x - 10 + 'px',
                  top: props.y - 15 + 'px',
              }}>
-
         </div>
     </>
 }

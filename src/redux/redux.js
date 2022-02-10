@@ -8,6 +8,7 @@ import fifthSpace_reducer from "./fifthSpace_reducer";
 import eighthSpace_reducer from "./eighthSpace_reducer";
 import ninthSpace_reducer from "./ninthSpace_reducer";
 import tenthSpace_reducer from "./tenthSpace_reducer";
+import killFlies_reducer from "./killFlies_reducer";
 
 let reducers = combineReducers({
     mainSpace_reducer: mainSpace_reducer,
@@ -19,6 +20,7 @@ let reducers = combineReducers({
     eighthSpace_reducer: eighthSpace_reducer,
     ninthSpace_reducer: ninthSpace_reducer,
     tenthSpace_reducer: tenthSpace_reducer,
+    killFlies_reducer: killFlies_reducer,
 });
 
 let store = createStore(reducers);

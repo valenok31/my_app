@@ -4,12 +4,8 @@ import style from "./KillerOfFliesSpace.module.css";
 
 const Fly = (props) => {
     let i = props.i;
-    let coordDeadFlyX = props.coordDeadFlyX;
-    let coordDeadFlyY = props.coordDeadFlyY;
-    let counterDeadFly = props.counterDeadFly - 1;
     const screenWidth = document.documentElement.clientWidth;
     const screenHeight = document.documentElement.clientHeight;
-    console.log(props.calcPoints(0, 0, coordDeadFlyX[counterDeadFly], coordDeadFlyY[counterDeadFly]));
 
     let styleLeft = () => {
         return Math.random() * (screenWidth - 100) + 50 + 'px'

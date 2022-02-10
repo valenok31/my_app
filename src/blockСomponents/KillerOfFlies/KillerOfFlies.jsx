@@ -12,7 +12,6 @@ const KillerOfFlies = (props) => {
     let totalPoints;
     const screenWidth = document.documentElement.clientWidth / 2;
     const screenHeight = document.documentElement.clientHeight / 2;
-    const maxInvertPoint = Math.sqrt(screenWidth ** 2 + screenHeight ** 2);
 
     let tellFly = [
         'Hi',
@@ -59,33 +58,29 @@ const KillerOfFlies = (props) => {
     }
 
     for (let i = 0; i < counter; i++) {
-        flies.push(<Fly i={i} tellFly={tellFly}
+        flies.push(<Fly i={i}
+                        tellFly={tellFly}
                         refresh={refresh}
-                        calcPoints={calcPoints}
-                        counterDeadFly={counterDeadFly}
-                        coordDeadFlyX={coordDeadFlyX}
-                        coordDeadFlyY={coordDeadFlyY}/>);
+                        calcPoints={calcPoints}/>);
     }
 
     for (let d = 0; d < counterDeadFly; d++) {
         deadFlies.push(<DeadFly d={d} x={coordDeadFlyX[d]} y={coordDeadFlyY[d]}/>);
         let calcPointsRang = 0;
         if (calcPoints(coordDeadFlyX[d], coordDeadFlyY[d], screenWidth, screenHeight) < 201) {
-            calcPointsRang = 10
+            calcPointsRang = 10;
         }
         if (calcPoints(coordDeadFlyX[d], coordDeadFlyY[d], screenWidth, screenHeight) < 151) {
-            calcPointsRang = 40
+            calcPointsRang = 40;
         }
         if (calcPoints(coordDeadFlyX[d], coordDeadFlyY[d], screenWidth, screenHeight) < 101) {
-            calcPointsRang = 70
+            calcPointsRang = 70;
         }
         if (calcPoints(coordDeadFlyX[d], coordDeadFlyY[d], screenWidth, screenHeight) < 51) {
-            calcPointsRang = 100
+            calcPointsRang = 100;
         }
         coordDeadFly.push(calcPointsRang);
-        totalPoints = coordDeadFly.reduce((z, d) => {
-            return z + d
-        })
+        totalPoints = coordDeadFly.reduce((a, b) => a + b)
     }
 
     return (
