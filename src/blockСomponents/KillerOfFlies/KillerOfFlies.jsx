@@ -10,6 +10,7 @@ const KillerOfFlies = (props) => {
     let deadFlies = [];
     let coordDeadFly = [];
     let totalPoints;
+    /* coordinates of the center of the screen */
     const screenWidth = document.documentElement.clientWidth / 2;
     const screenHeight = document.documentElement.clientHeight / 2;
 
