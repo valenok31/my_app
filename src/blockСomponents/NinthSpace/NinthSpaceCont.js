@@ -5,6 +5,7 @@ import axios from "axios";
 import {togglesIsFetching} from "../../redux/generalSetting_reducer";
 import Loader from "../Loader/Loader";
 import NinthSpace from "./NinthSpace";
+import InfoWind from "./InfoWind";
 
 class NinthSpaceAPICont extends React.Component {
 
@@ -32,28 +33,7 @@ class NinthSpaceAPICont extends React.Component {
         let info_set = this.props.profile;
         let info_sys = this.props.sys;
         let info_wind = this.props.wind;
-        let degString = 'северный';
-        if (info_wind.deg > 22.5 && info_wind.deg < 67.5) {
-            degString = 'северо-восточный'
-        }
-        if (info_wind.deg > 67.5 && info_wind.deg < 112.5) {
-            degString = 'восточный'
-        }
-        if (info_wind.deg > 112.5 && info_wind.deg < 157.5) {
-            degString = 'юго-восточный'
-        }
-        if (info_wind.deg > 157.5 && info_wind.deg < 202.5) {
-            degString = 'южный'
-        }
-        if (info_wind.deg > 202.5 && info_wind.deg < 247.5) {
-            degString = 'юго-западный'
-        }
-        if (info_wind.deg > 247.5 && info_wind.deg < 292.5) {
-            degString = 'западный'
-        }
-        if (info_wind.deg > 292.5 && info_wind.deg < 337.5) {
-            degString = 'северо-западный'
-        }
+        let degString = InfoWind(this.props.wind.deg);
         let fetching = this.props.isFetching;
         let temp = <span>{Math.floor(info_set.temp)} &#176;C</span>;
         let feels_like = <span>{Math.floor(info_set.feels_like)} &#176;C</span>;
