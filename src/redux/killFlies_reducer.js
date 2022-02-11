@@ -1,11 +1,15 @@
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_DATA_SYS = 'SET_DATA_SYS';
 
-let initialState = {/*
-    profile: {main: {}},
-    sys: {sys: {}},*/
-
-    profile: '',
+let initialState = {
+    tellFly: [
+        'Hi',
+        'Hello!',
+        'Who are you?',
+        'what do you need?',
+        'my name is Zhuzha',
+        'oh no!',
+    ]
 }
 
 const usersReducer = (state = initialState, action) => {

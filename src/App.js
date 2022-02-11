@@ -12,7 +12,7 @@ import EighthSpaceCont from "./blockСomponents/EighthSpace/EighthSpaceCont";
 import Home from "./blockСomponents/Home/Home";
 import NinthSpaceCont from "./blockСomponents/NinthSpace/NinthSpaceCont";
 import TenthSpaceCont from "./blockСomponents/TenthSpace/TenthSpaceCont";
-import KillerOfFlies from "./blockСomponents/KillerOfFlies/KillerOfFlies";
+import KillerOfFliesCont from "./blockСomponents/KillerOfFlies/KillerOfFliesCont";
 
 
 let App = (props) => {
@@ -32,7 +32,7 @@ let App = (props) => {
                     <Route path="/eighth" element={<EighthSpaceCont/>}/>
                     <Route path="/ninth" element={<NinthSpaceCont/>}/>
                     <Route path="/tenth" element={<TenthSpaceCont/>}/>
-                    <Route path="/killerofflies" element={<KillerOfFlies/>}/>
+                    <Route path="/killerofflies" element={<KillerOfFliesCont/>}/>
                 </Routes>
             </div>
         </div>
