@@ -1,9 +1,7 @@
 import React from "react";
 import style from "./NinthSpace.module.css"
 
-
 const NinthSpace = (props) => {
-
     let temWos = props.tempe;
 
     return <>

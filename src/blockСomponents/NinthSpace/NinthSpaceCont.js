@@ -13,39 +13,24 @@ class NinthSpaceAPICont extends React.Component {
     }
 
     render() {
-
-        let operationalLogic = {
-
-        };
-
         let info_set = this.props.profile;
         let info_sys = this.props.sys;
         let infoWind = this.props.wind;
-        let infoWindDeg = infoWind.deg;
-        let degString = InfoWind(infoWindDeg);
-        let fetching = this.props.isFetching;
-        let temp = <span>{Math.floor(info_set.temp)} &#176;C</span>;
-        let feels_like = <span>{Math.floor(info_set.feels_like)} &#176;C</span>;
-        let pressure = <span>{Math.floor(info_set.pressure * 0.750062)} мм рт.ст.</span>;
-        let humidity = <span>{info_set.humidity} %</span>
-        let windSpeed = <span>{degString} {infoWind.speed} м/с</span>
-        let sunriseUNIX = info_sys.sunrise * 1000;
-        let sunsetUNIX = info_sys.sunset * 1000;
-        let sunrise = new Date(sunriseUNIX).toLocaleString() + "";
-        let sunset = new Date(sunsetUNIX).toLocaleString() + "";
-        let tempeset = {
-            temp,
-            feels_like,
-            pressure,
-            humidity,
-            windSpeed,
-            sunrise,
-            sunset,
+        let degString = InfoWind(infoWind.deg);
+
+        const tempeset = {
+            temp: <span>{Math.floor(info_set.temp)} &#176;C</span>,
+            feels_like: <span>{Math.floor(info_set.feels_like)} &#176;C</span>,
+            pressure: <span>{Math.floor(info_set.pressure * 0.750062)} мм рт.ст.</span>,
+            humidity: <span>{info_set.humidity} %</span>,
+            windSpeed: <span>{degString} {infoWind.speed} м/с</span>,
+            sunrise: new Date(info_sys.sunrise * 1000).toLocaleString() + "",
+            sunset: new Date(info_sys.sunset * 1000).toLocaleString() + "",
         }
 
         return <>
             {this.props.isFetching ? <Loader/> : null}
-            <NinthSpace fetching={fetching} tempe={tempeset}/>
+            <NinthSpace fetching={this.props.isFetching} tempe={tempeset}/>
         </>
     }
 }
@@ -61,6 +46,5 @@ let mapStateToProps = (state) => ({
 
 export default connect(mapStateToProps,
     {
-        getWeatherThunk, setUsersProfile,
-        setDataSys, togglesIsFetching
+        getWeatherThunk, setUsersProfile, setDataSys, togglesIsFetching
     })(NinthSpaceAPICont)

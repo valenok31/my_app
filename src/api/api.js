@@ -1,6 +1,5 @@
 import * as axios from "axios";
 
-
 export const userAPI = {
     getUsers(lat, lon){
         return axios({

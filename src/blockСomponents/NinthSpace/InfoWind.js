@@ -25,7 +25,6 @@ const InfoWind = (infoWind) => {
     }
 
     return degString;
-
 }
 
 export default InfoWind;

@@ -14,13 +14,10 @@ let initialState = {
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
-
         case SET_USER_PROFILE:
             return {...state, profile: action.profile, wind: action.wind}
-
         case SET_DATA_SYS:
             return {...state, sys: action.sys}
-
         default:
             return state;
     }
@@ -35,7 +32,7 @@ export const setDataSys = (sys) => ({
 
 export const getWeatherThunk = (lat, lon) => {
     return (dispatch) => {
-        togglesIsFetching(true);
+        dispatch(togglesIsFetching(true));
         userAPI.getUsers(lat, lon).then(resp => {
             dispatch(setUsersProfile(resp.data.main, resp.data.wind));
             dispatch(setDataSys(resp.data.sys));
@@ -46,7 +43,6 @@ export const getWeatherThunk = (lat, lon) => {
                 dispatch(setDataSys('ERROR!!'));
                 dispatch(togglesIsFetching(false));
             })
-
     }
 }
 
