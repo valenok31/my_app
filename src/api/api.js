@@ -1,18 +1,18 @@
 import * as axios from "axios";
 
-const instance = axios.create({
-    withCredentials: true,
-    baseURL: `https://social-network.samuraijs.com/api/1.0/`,
-    headers: {
-        /*"API-KEY": "ebbcbb05-1637-4d91-a652-d34246d4f016",*/
-    },
-});
+export const getUsers = (lat, lon) => {
+    return axios({
+        method: 'get',
+        url: 'http://api.openweathermap.org/data/2.5/weather',
+        responseType: 'stream',
+        params: {
+            appid: '162fccc9d12d11b8815f8c9684922df6',
+            units: 'metric',
+            lang: 'ru',
+            lat: lat,
+            lon: lon,
+        }
+    });
 
-export const profileAPI = {
-    getUser(userId) {
-        return instance.get(`profile/` + userId)
-            .then(response => {
-                return response.data
-            });
-    }
 }
+

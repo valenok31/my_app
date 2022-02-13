@@ -1,31 +1,31 @@
 import React from "react";
 
-const InfoWind = (info_wind) => {
-
+const InfoWind = (infoWind) => {
     let degString = 'северный';
-    if (info_wind > 22.5 && info_wind < 67.5) {
-        degString = 'северо-восточный'
+    if (infoWind > 22.5 && infoWind < 67.5) {
+        return degString = 'северо-восточный'
     }
-    if (info_wind > 67.5 && info_wind < 112.5) {
-        degString = 'восточный'
+    if (infoWind > 67.5 && infoWind < 112.5) {
+        return degString = 'восточный'
     }
-    if (info_wind > 112.5 && info_wind < 157.5) {
-        degString = 'юго-восточный'
+    if (infoWind > 112.5 && infoWind < 157.5) {
+        return degString = 'юго-восточный'
     }
-    if (info_wind > 157.5 && info_wind < 202.5) {
-        degString = 'южный'
+    if (infoWind > 157.5 && infoWind < 202.5) {
+        return degString = 'южный'
     }
-    if (info_wind > 202.5 && info_wind < 247.5) {
-        degString = 'юго-западный'
+    if (infoWind > 202.5 && infoWind < 247.5) {
+        return degString = 'юго-западный'
     }
-    if (info_wind > 247.5 && info_wind < 292.5) {
-        degString = 'западный'
+    if (infoWind > 247.5 && infoWind < 292.5) {
+        return degString = 'западный'
     }
-    if (info_wind > 292.5 && info_wind < 337.5) {
-        degString = 'северо-западный'
+    if (infoWind > 292.5 && infoWind < 337.5) {
+        return degString = 'северо-западный'
     }
 
     return degString;
+
 }
 
 export default InfoWind;
