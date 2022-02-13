@@ -1,28 +1,15 @@
 import React from "react";
 import {connect} from "react-redux";
-import {setDataSys, setUsersProfile} from "../../redux/ninthSpace_reducer";
+import {getWeatherThunk, setDataSys, setUsersProfile} from "../../redux/ninthSpace_reducer";
 import {togglesIsFetching} from "../../redux/generalSetting_reducer";
 import Loader from "../Loader/Loader";
 import NinthSpace from "./NinthSpace";
 import InfoWind from "./InfoWind";
-import {userAPI} from "../../api/api";
 
 class NinthSpaceAPICont extends React.Component {
 
     componentDidMount() {
-        this.props.togglesIsFetching(true);
-        let lat = '53.426102';
-        let lon = '83.936766';
-        userAPI.getUsers(lat, lon).then(resp => {
-            this.props.setUsersProfile(resp.data.main, resp.data.wind);
-            this.props.setDataSys(resp.data.sys);
-            this.props.togglesIsFetching(false);
-        })
-            .catch(resp => {
-                this.props.setUsersProfile('ERROR!!');
-                this.props.setDataSys('ERROR!!');
-                this.props.togglesIsFetching(false);
-            })
+        this.props.getWeatherThunk(this.props.lat, this.props.lon);
     }
 
     render() {
@@ -62,7 +49,13 @@ let mapStateToProps = (state) => ({
     profile: state.ninthSpace_reducer.profile,
     wind: state.ninthSpace_reducer.wind,
     sys: state.ninthSpace_reducer.sys,
-    isFetching: state.generalSetting_reducer.isFetching
+    isFetching: state.generalSetting_reducer.isFetching,
+    lat: state.ninthSpace_reducer.lat,
+    lon: state.ninthSpace_reducer.lon,
 })
 
-export default connect(mapStateToProps, {setUsersProfile, setDataSys, togglesIsFetching})(NinthSpaceAPICont)
+export default connect(mapStateToProps,
+    {
+        getWeatherThunk, setUsersProfile,
+        setDataSys, togglesIsFetching
+    })(NinthSpaceAPICont)
