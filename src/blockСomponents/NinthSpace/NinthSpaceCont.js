@@ -1,12 +1,11 @@
 import React from "react";
 import {connect} from "react-redux";
 import {setDataSys, setUsersProfile} from "../../redux/ninthSpace_reducer";
-import axios from "axios";
 import {togglesIsFetching} from "../../redux/generalSetting_reducer";
 import Loader from "../Loader/Loader";
 import NinthSpace from "./NinthSpace";
 import InfoWind from "./InfoWind";
-import {getUsers} from "../../api/api";
+import {userAPI} from "../../api/api";
 
 class NinthSpaceAPICont extends React.Component {
 
@@ -14,7 +13,7 @@ class NinthSpaceAPICont extends React.Component {
         this.props.togglesIsFetching(true);
         let lat = '53.426102';
         let lon = '83.936766';
-        getUsers(lat, lon).then(resp => {
+        userAPI.getUsers(lat, lon).then(resp => {
             this.props.setUsersProfile(resp.data.main, resp.data.wind);
             this.props.setDataSys(resp.data.sys);
             this.props.togglesIsFetching(false);
