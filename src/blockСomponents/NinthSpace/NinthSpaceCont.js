@@ -13,6 +13,11 @@ class NinthSpaceAPICont extends React.Component {
     }
 
     render() {
+
+        let operationalLogic = {
+
+        };
+
         let info_set = this.props.profile;
         let info_sys = this.props.sys;
         let infoWind = this.props.wind;
