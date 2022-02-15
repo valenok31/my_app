@@ -13,7 +13,7 @@ const NinthSpace = (props) => {
     return <>
         <div className={style.item}>
             <Sun {...props}/>
-            <div className={style.temp}>{props.fetching ? `...` : temWos.temp}</div>
+            <div><span className={style.temp}>{props.fetching ? `...` : temWos.temp}</span><span className={style.temp_10}>&#176;</span></div>
             <div className={style.feels_like}>Ощущается как: {props.fetching ? `...загрузка` : temWos.feels_like}</div>
 
 
@@ -46,7 +46,7 @@ const NinthSpace = (props) => {
                 </div>
                 <div>{props.wind.speed} m/s</div>
             </div>
-            <div>Время: {props.dateNow}</div>
+
         </div>
     </>
 }

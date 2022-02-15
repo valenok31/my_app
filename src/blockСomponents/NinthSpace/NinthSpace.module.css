@@ -28,6 +28,10 @@
 .temp{
     font-size: 130px;
 }
+.temp_10 {
+    font-size: 100px;
+}
+
 .feels_like{
     font-size: 20px;
 }
@@ -38,8 +42,7 @@ img{
 }
 
 .sunrise_sunset{
-    margin: 80px;
-    padding: 50px;
+    padding: 20px;
 }
 
 .windDeg{

@@ -26,8 +26,8 @@ class NinthSpaceAPICont extends React.Component {
         const id = setInterval(() => (new Date().toLocaleString()), 1000);
         clearInterval(id);
         const tempeset = {
-            temp: <span>{Math.floor(info_set.temp)} &#176;C</span>,
-            feels_like: <span>{Math.floor(info_set.feels_like)} &#176;C</span>,
+            temp: <span>{Math.floor(info_set.temp)} </span>,
+            feels_like: <span>{Math.floor(info_set.feels_like)}&#176;</span>,
             pressure: <span>{Math.floor(info_set.pressure * 0.750062)} мм рт.ст.</span>,
             humidity: <span>{info_set.humidity} %</span>,
             windSpeed: <span>{degString} {infoWind.speed} м/с</span>,
