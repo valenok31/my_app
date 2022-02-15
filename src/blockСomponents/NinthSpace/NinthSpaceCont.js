@@ -7,9 +7,15 @@ import NinthSpace from "./NinthSpace";
 import InfoWind from "./InfoWind";
 
 class NinthSpaceAPICont extends React.Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+            time: new Date().toLocaleString()
+        };
+    }
     componentDidMount() {
         this.props.getWeatherThunk(this.props.lat, this.props.lon);
+
     }
 
     render() {
@@ -17,7 +23,8 @@ class NinthSpaceAPICont extends React.Component {
         let info_sys = this.props.sys;
         let infoWind = this.props.wind;
         let degString = InfoWind(infoWind.deg);
-
+        const id = setInterval(() => (new Date().toLocaleString()), 1000);
+        clearInterval(id);
         const tempeset = {
             temp: <span>{Math.floor(info_set.temp)} &#176;C</span>,
             feels_like: <span>{Math.floor(info_set.feels_like)} &#176;C</span>,
@@ -30,7 +37,7 @@ class NinthSpaceAPICont extends React.Component {
 
         return <>
             {this.props.isFetching ? <Loader/> : null}
-            <NinthSpace fetching={this.props.isFetching} tempe={tempeset}/>
+            <NinthSpace fetching={this.props.isFetching} tempe={tempeset} dateNow={this.state.time} {...this.props}/>
         </>
     }
 }
