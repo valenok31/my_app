@@ -1,22 +1,27 @@
-import React from "react";
-import style from "./FourthSpace.module.css"
+import React, {useState} from "react";
+import AppGeo from "./usePosition";
 
 const FourthSpace = (props) => {
 
-    const array = [1,3,5,30,10];
-    const result = array.lastIndexOf(3)
-    console.log(result);
+    const [latit, setLatit] = useState(0);
+    const [longit, setLongit] = useState(0);
 
+    navigator.geolocation.getCurrentPosition(function (position) {
+        console.log("Latitude is :", position.coords.latitude);
+        console.log("Longitude is :", position.coords.longitude);
+        setLatit(position.coords.latitude);
+        setLongit(position.coords.longitude);
+
+    });
 
     return (
-        <div>
-            <div className={style.item}>
-                Hi!
-            </div>
-
-
-        </div>
-    )
+        <code>
+            <AppGeo latit={latit} longit={longit}/>
+        </code>
+    );
 }
 
 export default FourthSpace;
+
+
+
