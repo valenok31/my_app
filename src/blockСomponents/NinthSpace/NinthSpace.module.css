@@ -45,6 +45,7 @@ img{
     padding: 20px;
 }
 
-.windDeg{
-
+.windDeg img{
+    width: 30px;
+    height: 40px;
 }
