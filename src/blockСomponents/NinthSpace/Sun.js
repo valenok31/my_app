@@ -8,6 +8,7 @@ const Sun = (props) => {
     let nightDay = <img src="https://cdn-icons-png.flaticon.com/512/740/740878.png"/>
 
     return <div>
+
         <div
             className={style.sun}>{(props.dateNow > temWos.sunset || props.dateNow < temWos.sunrise) ? nightDay : sunDay}</div>
         <div>{props.dateNow}</div>

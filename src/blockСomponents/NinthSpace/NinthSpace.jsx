@@ -5,14 +5,12 @@ import Sun from "./Sun";
 
 const NinthSpace = (props) => {
     let temWos = props.tempe;
-    let sunDay = <img
-        src="https://cdn-icons.flaticon.com/png/512/3073/premium/3073665.png?token=exp=1644940669~hmac=b2a4ff18e8416a4e7dcd6f30ef5f8046"/>
-    let nightDay = <img
-        src='https://cdn-icons-png.flaticon.com/512/740/740878.png'/>
 
 
     return <>
         <div className={style.item}>
+            <div>{props.lat}, {props.lon}</div>
+            <div>{props.name}</div>
             <Sun {...props}/>
             <div><span className={style.temp}>{props.fetching ? `...` : temWos.temp}</span><span className={style.temp_10}>&#176;</span></div>
             <div className={style.feels_like}>Ощущается как: {props.fetching ? `...загрузка` : temWos.feels_like}</div>

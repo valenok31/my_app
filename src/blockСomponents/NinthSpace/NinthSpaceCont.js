@@ -5,6 +5,7 @@ import {togglesIsFetching} from "../../redux/generalSetting_reducer";
 import Loader from "../Loader/Loader";
 import NinthSpace from "./NinthSpace";
 import InfoWind from "./InfoWind";
+import GeoLocation from "./GeoLocation";
 
 class NinthSpaceAPICont extends React.Component {
     constructor(props) {
@@ -13,8 +14,15 @@ class NinthSpaceAPICont extends React.Component {
             time: new Date().toLocaleString()
         };
     }
+
     componentDidMount() {
         this.props.getWeatherThunk(this.props.lat, this.props.lon);
+    }
+
+    componentDidUpdate(prevProps) {
+        if (this.props.lat !== prevProps.lat || this.props.lon !== prevProps.lon) {
+            this.props.getWeatherThunk(this.props.lat, this.props.lon);
+        }
 
     }
 
@@ -33,9 +41,11 @@ class NinthSpaceAPICont extends React.Component {
             windSpeed: <span>{degString} {infoWind.speed} м/с</span>,
             sunrise: new Date(info_sys.sunrise * 1000).toLocaleString() + "",
             sunset: new Date(info_sys.sunset * 1000).toLocaleString() + "",
+            name: <span>{this.props.name}</span>,
         }
 
         return <>
+            <GeoLocation/>
             {this.props.isFetching ? <Loader/> : null}
             <NinthSpace fetching={this.props.isFetching} tempe={tempeset} dateNow={this.state.time} {...this.props}/>
         </>
@@ -49,6 +59,7 @@ let mapStateToProps = (state) => ({
     isFetching: state.generalSetting_reducer.isFetching,
     lat: state.ninthSpace_reducer.lat,
     lon: state.ninthSpace_reducer.lon,
+    name: state.ninthSpace_reducer.name,
 })
 
 export default connect(mapStateToProps,
