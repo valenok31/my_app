@@ -13,7 +13,6 @@ const GeoLocation = (props) => {
         console.log("Longitude is :", position.coords.longitude);
         setLatit(position.coords.latitude);
         setLongit(position.coords.longitude);
-
     });
     props.setGeoLocation(latit, longit);
     return <></>

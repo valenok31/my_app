@@ -11,7 +11,7 @@ const Sun = (props) => {
 
         <div
             className={style.sun}>{(props.dateNow > temWos.sunset || props.dateNow < temWos.sunrise) ? nightDay : sunDay}</div>
-        <div>{props.dateNow}</div>
+
 
     </div>
 }

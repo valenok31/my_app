@@ -23,7 +23,6 @@ class NinthSpaceAPICont extends React.Component {
         if (this.props.lat !== prevProps.lat || this.props.lon !== prevProps.lon) {
             this.props.getWeatherThunk(this.props.lat, this.props.lon);
         }
-
     }
 
     render() {

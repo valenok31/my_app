@@ -5,16 +5,15 @@ import Sun from "./Sun";
 
 const NinthSpace = (props) => {
     let temWos = props.tempe;
-
-
+    let titleName = `${props.lat}, ${props.lon}`;
+let titleTempData = props.dateNow;
     return <>
         <div className={style.item}>
-            <div>{props.lat}, {props.lon}</div>
-            <div>{props.name}</div>
+            <div className={style.feels_like} title={titleName}>{props.name}</div>
             <Sun {...props}/>
-            <div><span className={style.temp}>{props.fetching ? `...` : temWos.temp}</span><span className={style.temp_10}>&#176;</span></div>
+            <div><span className={style.temp} title={titleTempData}>{props.fetching ? `...` : temWos.temp}</span><span
+                className={style.temp_10}>&#176;</span></div>
             <div className={style.feels_like}>Ощущается как: {props.fetching ? `...загрузка` : temWos.feels_like}</div>
-
 
             <div>
                 <div className={style.sunrise_sunset}>
