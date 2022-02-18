@@ -10,6 +10,7 @@ import ninthSpace_reducer from "./ninthSpace_reducer";
 import tenthSpace_reducer from "./tenthSpace_reducer";
 import killFlies_reducer from "./killFlies_reducer";
 import thunkMiddleware from "redux-thunk";
+import visitAllContinents_reducer from "./visitAllContinents_reducer";
 
 let reducers = combineReducers({
     mainSpace_reducer: mainSpace_reducer,
@@ -22,6 +23,7 @@ let reducers = combineReducers({
     ninthSpace_reducer: ninthSpace_reducer,
     tenthSpace_reducer: tenthSpace_reducer,
     killFlies_reducer: killFlies_reducer,
+    visitAllContinents_reducer: visitAllContinents_reducer,
 });
 
 let store = createStore(reducers, applyMiddleware(thunkMiddleware));

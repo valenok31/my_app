@@ -1,9 +1,8 @@
 import React from "react";
 import {connect} from "react-redux";
-import {setDataSys, setUsersProfile} from "../../redux/tenthSpace_reducer";
+import {setUsersProfile} from "../../redux/tenthSpace_reducer";
 import axios from "axios";
 import {togglesIsFetching} from "../../redux/generalSetting_reducer";
-import Loader from "../Loader/Loader";
 
 class TenthSpaceAPICont extends React.Component {
 
@@ -31,13 +30,16 @@ class TenthSpaceAPICont extends React.Component {
     render() {
         let fetching = this.props.isFetching;
         let info_set = this.props.profile;
-        let rubRatesEUR = <span>{info_set.RUB} </span>;
-        let rubRatesUSD = <span>{info_set.RUB/info_set.USD} </span>;
-
+        let rubRatesEUR;
+        let rubRatesUSD;
+        if(info_set){
+            rubRatesEUR = <span>{(info_set.RUB).toFixed(4)} руб.</span>;
+            rubRatesUSD = <span>{(info_set.RUB/info_set.USD).toFixed(4)} руб.</span>;
+        }
 
         return <>
-            <div>1 EUR = {fetching ? `...загрузка` : rubRatesEUR} руб.</div>
-            <div>1 USD = {fetching ? `...загрузка` : rubRatesUSD} руб.</div>
+            <div>1 EUR = {fetching ? `...загрузка` : rubRatesEUR}</div>
+            <div>1 USD = {fetching ? `...загрузка` : rubRatesUSD}</div>
         </>
     }
 }

@@ -13,6 +13,7 @@ import Home from "./blockСomponents/Home/Home";
 import NinthSpaceCont from "./blockСomponents/NinthSpace/NinthSpaceCont";
 import TenthSpaceCont from "./blockСomponents/TenthSpace/TenthSpaceCont";
 import KillerOfFliesCont from "./blockСomponents/KillerOfFlies/KillerOfFliesCont";
+import VisitAllContinentsCont from "./blockСomponents/VisitAllContinents/VisitAllContinentsCont";
 
 
 let App = (props) => {
@@ -33,6 +34,7 @@ let App = (props) => {
                     <Route path="/ninth" element={<NinthSpaceCont/>}/>
                     <Route path="/tenth" element={<TenthSpaceCont/>}/>
                     <Route path="/killerofflies" element={<KillerOfFliesCont/>}/>
+                    <Route path="/visitAllContinents" element={<VisitAllContinentsCont/>}/>
                 </Routes>
             </div>
         </div>
