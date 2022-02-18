@@ -15,7 +15,7 @@ const GeoLocation = (props) => {
         setLongit(position.coords.longitude);
     });
     props.setGeoLocation(latit, longit);
-    return <></>
+return <></>
 }
 
 let mapStateToProps = (state) => ({})
