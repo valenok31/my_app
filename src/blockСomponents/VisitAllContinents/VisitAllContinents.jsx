@@ -9,9 +9,12 @@ const VisitAllContinents = (props) => {
         <div className={style.item}>
 
 
-
-
-
+            <div className={`${style.city} ${style.per}`}>+
+            </div>
+            <div className={`${style.city} ${style.hak}`}>+
+            </div>
+            <div className={`${style.city} ${style.tul}`}>+
+            </div>
         </div>
     )
 }
