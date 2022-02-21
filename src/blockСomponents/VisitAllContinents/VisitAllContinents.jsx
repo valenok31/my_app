@@ -2,11 +2,11 @@ import React, {useState} from "react";
 import style from "./VisitAllContinents.module.css"
 import worldMap from './../../assets/images/worldMap.jpg'
 
-
 const VisitAllContinents = (props) => {
     let cityAddParam = [
         {
             name: 'mov',
+            title: 'New York city',
             cost: {
                 mov: 0,
                 ovb: 20000,
@@ -20,6 +20,7 @@ const VisitAllContinents = (props) => {
         },
         {
             name: 'ovb',
+            title: 'Novosibirsk',
             cost: {
                 mov: 19000,
                 ovb: 0,
@@ -33,6 +34,7 @@ const VisitAllContinents = (props) => {
         },
         {
             name: 'tul',
+            title: 'Cape Town',
             cost: {
                 mov: 10000,
                 ovb: 20000,
@@ -41,11 +43,12 @@ const VisitAllContinents = (props) => {
                 pos: 22000,
                 rom: 1000,
             },
-            lat: 300,
-            lon: 400,
+            lat: 430,
+            lon: 545,
         },
         {
             name: 'sor',
+            title: 'Paris',
             cost: {
                 mov: 13000,
                 ovb: 20000,
@@ -54,11 +57,12 @@ const VisitAllContinents = (props) => {
                 pos: 22000,
                 rom: 1000,
             },
-            lat: 120,
+            lat: 215,
             lon: 500,
         },
         {
             name: 'pos',
+            title: 'Rio de Janeiro',
             cost: {
                 mov: 50000,
                 ovb: 20000,
@@ -67,11 +71,12 @@ const VisitAllContinents = (props) => {
                 pos: 0,
                 rom: 1000,
             },
-            lat: 500,
-            lon: 100,
+            lat: 400,
+            lon: 390,
         },
         {
             name: 'rom',
+            title: 'Sydney',
             cost: {
                 mov: 140000,
                 ovb: 200000,
@@ -80,8 +85,8 @@ const VisitAllContinents = (props) => {
                 pos: 1290,
                 rom: 0,
             },
-            lat: 300,
-            lon: 1000,
+            lat: 430,
+            lon: 860,
         },
     ];
     let cityAddS = [];
@@ -93,71 +98,66 @@ const VisitAllContinents = (props) => {
     cityAddParam.map((f) => {
         cityAddS.push(f.name);
     })
-    const checkingСity = (previousСity, thisCity, b) => {
+    const checkingСity = (previousСity, thisCity, numberCity) => {
         if (!previousСity) return;
         cityAddParam.map((oneCity) => {
             if (oneCity.name == thisCity) {
-
-                cityAddParam.map((f,r) => {
-                    if(cityAddS.indexOf(previousСity) == r){
+                cityAddParam.map((f, r) => {
+                    if (cityAddS.indexOf(previousСity) == r) {
                         add = Object.values(f.cost);
-                        console.log('add='+add);
-                        console.log('r='+cityAddS.indexOf(thisCity));
-                        console.log('add[r]='+add[cityAddS.indexOf(thisCity)]);
-                        console.log('thisCity='+thisCity);
-                        console.log('previousСity='+previousСity);
-                        setTotalCost(totalСost+add[cityAddS.indexOf(thisCity)]);
+                        setTotalCost(totalСost + add[cityAddS.indexOf(thisCity)]);
                     }
                 })
 
             }
         })
-
     }
 
-
-
-
-    const choosingCityAdd = (a, b) => {
-        /*console.log(queueСities.includes(a.name));*/
-        if (queueСities.indexOf(a) == -1) {
-            queueСities.push(a);
+    const choosingCityAdd = (thisCity, numberCity) => {
+        if (queueСities.indexOf(thisCity) == -1) {
+            queueСities.push(thisCity);
             setQueueСities(queueСities);
             setChoosingCity(!choosingCity);
-            let w = queueСities[queueСities.indexOf(a) - 1];
-            checkingСity(w, a, b);
-
+            let prevСity = queueСities[queueСities.indexOf(thisCity) - 1];
+            checkingСity(prevСity, thisCity, numberCity);
         } else {
             let ret = queueСities;
-            ret.splice(queueСities.indexOf(a), 1)
+            ret.splice(queueСities.indexOf(thisCity), 1)
             setQueueСities(ret)
             setChoosingCity(!choosingCity);
         }
-        /* console.log(queueСities);*/
     }
 
-    let CitiesInGame = cityAddS.map((a, b, c) => {
-
+    let CitiesInGame = cityAddS.map((a, numberCity, c) => {
         return <div className={style.city}
-                    style={{top: cityAddParam[b].lat + 'px', left: cityAddParam[b].lon + 'px'}}>
+                    style={{top: cityAddParam[numberCity].lat + 'px', left: cityAddParam[numberCity].lon + 'px'}}>
             <div id={a}
-                 title={a}
+                 title={cityAddParam[numberCity].title}
                  className={(queueСities.indexOf(a) != -1 ? style.city__selected : style.city__no_selected)}
-                 onClick={() => choosingCityAdd(a, b)}>
+                 onClick={() => choosingCityAdd(a, numberCity)}>
                 {queueСities.indexOf(a) == -1 ? '' : queueСities.indexOf(a) + 1}
             </div>
         </div>
     });
 
+    return <>
+        <div className={style.item}>
 
-    return <div className={style.item}>
+            <div>{totalСost}</div>
+            <img src={worldMap} alt='Worlt Map' className={style.world_map}/>
+            {CitiesInGame}
 
-        <div>{totalСost}</div>
-        <img src={worldMap} alt='Worlt Map' className={style.world_map}/>
-        {CitiesInGame}
-
-    </div>
-
+        </div>
+        <button onClick={() => {
+            setQueueСities([]);
+            setTotalCost(0);
+            cityAddS = [];
+            add = [];
+            setChoosingCity(false);
+        }
+        }>Reset
+        </button>
+    </>
 }
 
 export default VisitAllContinents;
