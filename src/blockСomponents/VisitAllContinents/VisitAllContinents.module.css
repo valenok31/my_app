@@ -53,3 +53,7 @@ background-color: rgb(27, 202, 255);
     cursor: pointer;
 }
 
+.world_map{
+    width: 1000px;
+    height: 500px;
+}
