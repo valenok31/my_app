@@ -5,85 +5,85 @@ import worldMap from './../../assets/images/worldMap.jpg'
 const VisitAllContinents = (props) => {
     let cityAddParam = [
         {
-            name: 'mov',
+            name: 'JFK',
             title: 'New York city',
             cost: {
-                mov: 0,
-                ovb: 20000,
-                tul: 25000,
-                sor: 30000,
-                pos: 22000,
-                rom: 1000,
+                JFK: 0,
+                OVB: 430,
+                CPT: 538,
+                CDG: 209,
+                RIO: 218,
+                SYD: 520,
             },
             lat: 240,
             lon: 320,
         },
         {
-            name: 'ovb',
+            name: 'OVB',
             title: 'Novosibirsk',
             cost: {
-                mov: 19000,
-                ovb: 0,
-                tul: 25000,
-                sor: 30000,
-                pos: 22000,
-                rom: 1000,
+                JFK: 306,
+                OVB: 0,
+                CPT: 404,
+                CDG: 126,
+                RIO: 545,
+                SYD: 543,
             },
             lat: 200,
             lon: 670,
         },
         {
-            name: 'tul',
+            name: 'CPT',
             title: 'Cape Town',
             cost: {
-                mov: 10000,
-                ovb: 20000,
-                tul: 0,
-                sor: 30000,
-                pos: 22000,
-                rom: 1000,
+                JFK: 557,
+                OVB: 1200,
+                CPT: 0,
+                CDG: 332,
+                RIO: 622,
+                SYD: 639,
             },
             lat: 430,
             lon: 545,
         },
         {
-            name: 'sor',
+            name: 'CDG',
             title: 'Paris',
             cost: {
-                mov: 13000,
-                ovb: 20000,
-                tul: 25000,
-                sor: 0,
-                pos: 22000,
-                rom: 1000,
+                JFK: 202,
+                OVB: 156,
+                CPT: 394,
+                CDG: 0,
+                RIO: 279,
+                SYD: 493,
             },
             lat: 215,
             lon: 500,
         },
         {
-            name: 'pos',
+            name: 'RIO',
             title: 'Rio de Janeiro',
             cost: {
-                mov: 50000,
-                ovb: 20000,
-                tul: 25000,
-                sor: 30000,
-                pos: 0,
-                rom: 1000,
+                JFK: 262,
+                OVB: 1356,
+                CPT: 786,
+                CDG: 339,
+                RIO: 0,
+                SYD: 723,
             },
             lat: 400,
             lon: 390,
         },
         {
-            name: 'rom',
+            name: 'SYD',
             title: 'Sydney',
             cost: {
-                mov: 140000,
-                ovb: 200000,
-                tul: 105000,
-                sor: 300000,
-                pos: 1290,
-                rom: 0,
+                JFK: 486,
+                OVB: 526,
+                CPT: 702,
+                CDG: 347,
+                RIO: 779,
+                SYD: 0,
             },
             lat: 430,
             lon: 860,
@@ -109,7 +109,6 @@ const VisitAllContinents = (props) => {
                         let newTotArr = totalCostArr;
                         newTotArr.push(add[cityAddS.indexOf(thisCity)]);
                         setTotalCostArr(newTotArr);
-
                         const initialValue = 0;
                         const sumWithInitial = totalCostArr.reduce(
                             (previousValue, currentValue) => previousValue + currentValue,
@@ -129,22 +128,14 @@ const VisitAllContinents = (props) => {
             setChoosingCity(!choosingCity);
             let prevСity = queueСities[queueСities.indexOf(thisCity) - 1];
             checkingСity(prevСity, thisCity, numberCity);
-            console.log(queueСities);
-            console.log(totalCostArr);
-
         } else {
-            console.log(thisCity);
             if (thisCity == queueСities[queueСities.length-1]) {
                 let ret = queueСities;
                 ret.splice(queueСities.indexOf(thisCity), 1);
                 setQueueСities(ret);
-                console.log(queueСities);
-                console.log(totalCostArr);
                 let delTotalCostArr = totalCostArr;
                 if(delTotalCostArr.length>0){delTotalCostArr.length = delTotalCostArr.length-1;}
-
                 setTotalCostArr(delTotalCostArr);
-                console.log(totalCostArr);
                 const initialValue = 0;
                 const sumWithInitial = totalCostArr.reduce(
                     (previousValue, currentValue) => previousValue + currentValue,
@@ -170,11 +161,9 @@ const VisitAllContinents = (props) => {
 
     return <>
         <div className={style.item}>
-
             <div>{totalСost}</div>
             <img src={worldMap} alt='Worlt Map' className={style.world_map}/>
             {CitiesInGame}
-
         </div>
         <button onClick={() => {
             setQueueСities([]);
