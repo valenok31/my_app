@@ -189,13 +189,9 @@ const VisitAllContinents = (props) => {
                 cityAddParam.map((f, r) => {
                     if (setIndexOf(cityAddS, previousСity) == r) {
                         add = Object.values(f.cost);
-                        let newTotArr = totalCostArr;
-                        newTotArr.push(add[setIndexOf(cityAddS, thisCity)]);
-                        setTotalCostArr(newTotArr);
-                        const sumWithInitial = totalCostArr.reduce(
-                            (previousValue, currentValue) => previousValue + currentValue,
-                            0
-                        );
+                        totalCostArr.push(add[setIndexOf(cityAddS, thisCity)]);
+                        setTotalCostArr(totalCostArr);
+                        const sumWithInitial = totalCostArr.reduce((preVal, curVal) => preVal + curVal, 0);
                         setTotalCost(sumWithInitial);
                     }
                 })
@@ -212,18 +208,13 @@ const VisitAllContinents = (props) => {
             checkingСity(prevСity, thisCity, numberCity);
         } else {
             if (thisCity == queueСities[queueСities.length - 1]) {
-                let ret = queueСities;
-                ret.splice(setIndexOf(queueСities, thisCity), 1);
-                setQueueСities(ret);
-                let delTotalCostArr = totalCostArr;
-                if (delTotalCostArr.length > 0) {
-                    delTotalCostArr.length = delTotalCostArr.length - 1;
-                }
-                setTotalCostArr(delTotalCostArr);
-                const initialValue = 0;
+                queueСities.splice(setIndexOf(queueСities, thisCity), 1);
+                setQueueСities(queueСities);
+                if (totalCostArr.length > 0) totalCostArr.length = totalCostArr.length - 1;
+                setTotalCostArr(totalCostArr);
                 const sumWithInitial = totalCostArr.reduce(
                     (previousValue, currentValue) => previousValue + currentValue,
-                    initialValue
+                    0
                 );
                 setTotalCost(sumWithInitial);
                 setChoosingCity(!choosingCity);
@@ -242,6 +233,7 @@ const VisitAllContinents = (props) => {
             </div>
         </div>
     });
+
 
     return <>
         <div className={style.item}>
