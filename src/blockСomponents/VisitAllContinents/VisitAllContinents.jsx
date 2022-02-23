@@ -94,7 +94,7 @@ const VisitAllContinents = (props) => {
     const [choosingCity, setChoosingCity] = useState(false);
     const [queueСities, setQueueСities] = useState([]);
     const [totalСost, setTotalCost] = useState(0);
-    const [totalCostArr, setTotalCostArr] = useState ([]);
+    const [totalCostArr, setTotalCostArr] = useState([]);
 
     cityAddParam.map((f) => {
         cityAddS.push(f.name);
@@ -106,7 +106,6 @@ const VisitAllContinents = (props) => {
                 cityAddParam.map((f, r) => {
                     if (cityAddS.indexOf(previousСity) == r) {
                         add = Object.values(f.cost);
-                        /*setTotalCost(totalСost + add[cityAddS.indexOf(thisCity)]);*/
                         let newTotArr = totalCostArr;
                         newTotArr.push(add[cityAddS.indexOf(thisCity)]);
                         setTotalCostArr(newTotArr);
@@ -117,10 +116,8 @@ const VisitAllContinents = (props) => {
                             initialValue
                         );
                         setTotalCost(sumWithInitial);
-
                     }
                 })
-
             }
         })
     }
@@ -133,12 +130,29 @@ const VisitAllContinents = (props) => {
             let prevСity = queueСities[queueСities.indexOf(thisCity) - 1];
             checkingСity(prevСity, thisCity, numberCity);
             console.log(queueСities);
+            console.log(totalCostArr);
+
         } else {
-            let ret = queueСities;
-            ret.splice(queueСities.indexOf(thisCity), 1);
-            setQueueСities(ret);
-            console.log(queueСities);
-            setChoosingCity(!choosingCity);
+            console.log(thisCity);
+            if (thisCity == queueСities[queueСities.length-1]) {
+                let ret = queueСities;
+                ret.splice(queueСities.indexOf(thisCity), 1);
+                setQueueСities(ret);
+                console.log(queueСities);
+                console.log(totalCostArr);
+                let delTotalCostArr = totalCostArr;
+                if(delTotalCostArr.length>0){delTotalCostArr.length = delTotalCostArr.length-1;}
+
+                setTotalCostArr(delTotalCostArr);
+                console.log(totalCostArr);
+                const initialValue = 0;
+                const sumWithInitial = totalCostArr.reduce(
+                    (previousValue, currentValue) => previousValue + currentValue,
+                    initialValue
+                );
+                setTotalCost(sumWithInitial);
+                setChoosingCity(!choosingCity);
+            }
         }
     }
 
