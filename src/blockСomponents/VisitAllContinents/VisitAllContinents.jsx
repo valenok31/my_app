@@ -14,6 +14,8 @@ const VisitAllContinents = (props) => {
                 CDG: 209,
                 RIO: 218,
                 SYD: 520,
+                LAX: 73,
+                PEK: 633,
             },
             lat: 240,
             lon: 320,
@@ -28,6 +30,8 @@ const VisitAllContinents = (props) => {
                 CDG: 126,
                 RIO: 545,
                 SYD: 543,
+                LAX: 440,
+                PEK: 558,
             },
             lat: 200,
             lon: 670,
@@ -42,6 +46,8 @@ const VisitAllContinents = (props) => {
                 CDG: 332,
                 RIO: 622,
                 SYD: 639,
+                LAX: 771,
+                PEK: 968,
             },
             lat: 430,
             lon: 545,
@@ -56,6 +62,8 @@ const VisitAllContinents = (props) => {
                 CDG: 0,
                 RIO: 279,
                 SYD: 493,
+                LAX: 311,
+                PEK: 616,
             },
             lat: 215,
             lon: 500,
@@ -70,6 +78,8 @@ const VisitAllContinents = (props) => {
                 CDG: 339,
                 RIO: 0,
                 SYD: 723,
+                LAX: 273,
+                PEK: 1293,
             },
             lat: 400,
             lon: 390,
@@ -84,9 +94,43 @@ const VisitAllContinents = (props) => {
                 CDG: 347,
                 RIO: 779,
                 SYD: 0,
+                LAX: 366,
+                PEK: 477,
             },
             lat: 430,
             lon: 860,
+        },
+        {
+            name: 'LAX',
+            title: 'Los Angeles',
+            cost: {
+                JFK: 51,
+                OVB: 579,
+                CPT: 614,
+                CDG: 185,
+                RIO: 293,
+                SYD: 314,
+                LAX: 0,
+                PEK: 650,
+            },
+            lat: 245,
+            lon: 210,
+        },
+        {
+            name: 'PEK',
+            title: 'Beijing',
+            cost: {
+                JFK: 695,
+                OVB: 462,
+                CPT: 890,
+                CDG: 544,
+                RIO: 1669,
+                SYD: 729,
+                LAX: 778,
+                PEK: 0,
+            },
+            lat: 240,
+            lon: 760,
         },
     ];
     let cityAddS = [];
@@ -154,7 +198,7 @@ const VisitAllContinents = (props) => {
                  title={cityAddParam[numberCity].title}
                  className={(queueСities.indexOf(a) != -1 ? style.city__selected : style.city__no_selected)}
                  onClick={() => choosingCityAdd(a, numberCity)}>
-                {queueСities.indexOf(a) == -1 ? '' : queueСities.indexOf(a) + 1}
+                {queueСities.indexOf(a) == -1 ? '' : `${queueСities.indexOf(a) + 1}`}
             </div>
         </div>
     });
