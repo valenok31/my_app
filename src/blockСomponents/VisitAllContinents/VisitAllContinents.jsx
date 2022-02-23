@@ -177,20 +177,26 @@ const VisitAllContinents = (props) => {
     cityAddParam.map((f) => {
         cityAddS.push(f.name);
     })
+
+  const  setIndexOf = (add, number) => {
+        return add.indexOf(number);
+  }
+
     const checkingСity = (previousСity, thisCity, numberCity) => {
         if (!previousСity) return;
         cityAddParam.map((oneCity) => {
             if (oneCity.name == thisCity) {
                 cityAddParam.map((f, r) => {
-                    if (cityAddS.indexOf(previousСity) == r) {
+                    /*if (cityAddS.indexOf(previousСity) == r) {*/
+                    if (setIndexOf(cityAddS, previousСity) == r) {
+
                         add = Object.values(f.cost);
                         let newTotArr = totalCostArr;
                         newTotArr.push(add[cityAddS.indexOf(thisCity)]);
                         setTotalCostArr(newTotArr);
-                        const initialValue = 0;
                         const sumWithInitial = totalCostArr.reduce(
                             (previousValue, currentValue) => previousValue + currentValue,
-                            initialValue
+                            0
                         );
                         setTotalCost(sumWithInitial);
                     }
