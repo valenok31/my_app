@@ -94,6 +94,7 @@ const VisitAllContinents = (props) => {
     const [choosingCity, setChoosingCity] = useState(false);
     const [queueСities, setQueueСities] = useState([]);
     const [totalСost, setTotalCost] = useState(0);
+    const [totalCostArr, setTotalCostArr] = useState ([]);
 
     cityAddParam.map((f) => {
         cityAddS.push(f.name);
@@ -105,7 +106,18 @@ const VisitAllContinents = (props) => {
                 cityAddParam.map((f, r) => {
                     if (cityAddS.indexOf(previousСity) == r) {
                         add = Object.values(f.cost);
-                        setTotalCost(totalСost + add[cityAddS.indexOf(thisCity)]);
+                        /*setTotalCost(totalСost + add[cityAddS.indexOf(thisCity)]);*/
+                        let newTotArr = totalCostArr;
+                        newTotArr.push(add[cityAddS.indexOf(thisCity)]);
+                        setTotalCostArr(newTotArr);
+
+                        const initialValue = 0;
+                        const sumWithInitial = totalCostArr.reduce(
+                            (previousValue, currentValue) => previousValue + currentValue,
+                            initialValue
+                        );
+                        setTotalCost(sumWithInitial);
+
                     }
                 })
 
@@ -120,10 +132,12 @@ const VisitAllContinents = (props) => {
             setChoosingCity(!choosingCity);
             let prevСity = queueСities[queueСities.indexOf(thisCity) - 1];
             checkingСity(prevСity, thisCity, numberCity);
+            console.log(queueСities);
         } else {
             let ret = queueСities;
-            ret.splice(queueСities.indexOf(thisCity), 1)
-            setQueueСities(ret)
+            ret.splice(queueСities.indexOf(thisCity), 1);
+            setQueueСities(ret);
+            console.log(queueСities);
             setChoosingCity(!choosingCity);
         }
     }
@@ -151,6 +165,7 @@ const VisitAllContinents = (props) => {
         <button onClick={() => {
             setQueueСities([]);
             setTotalCost(0);
+            setTotalCostArr([]);
             cityAddS = [];
             add = [];
             setChoosingCity(false);
