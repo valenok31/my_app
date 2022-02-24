@@ -81,7 +81,7 @@ const VisitAllContinents = (props) => {
             title: 'Rio de Janeiro',
             cost: {
                 JFK: 262,
-                OVB: 1356,
+                OVB: 1350,
                 CPT: 786,
                 CDG: 339,
                 RIO: 0,
@@ -198,6 +198,7 @@ const VisitAllContinents = (props) => {
             }
         })
     }
+
 
     const choosingCityAdd = (thisCity, numberCity) => {
         if (setIndexOf(queueСities, thisCity) == -1) {
