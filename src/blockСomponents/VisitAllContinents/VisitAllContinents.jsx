@@ -12,7 +12,7 @@ const VisitAllContinents = (props) => {
                 OVB: 430,
                 CPT: 538,
                 CDG: 209,
-                RIO: 218,
+                RIO: 219,
                 SYD: 520,
                 LAX: 73,
                 PEK: 633,

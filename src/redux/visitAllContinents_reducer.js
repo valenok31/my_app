@@ -1,10 +1,7 @@
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_DATA_SYS = 'SET_DATA_SYS';
 
-let initialState = {/*
-    profile: {main: {}},
-    sys: {sys: {}},*/
-
+let initialState = {
     profile: '',
 }
 

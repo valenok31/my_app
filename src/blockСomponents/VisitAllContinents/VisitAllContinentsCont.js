@@ -1,7 +1,6 @@
 import React from "react";
 import {connect} from "react-redux";
 import {setUsersProfile} from "../../redux/visitAllContinents_reducer";
-import axios from "axios";
 import {togglesIsFetching} from "../../redux/generalSetting_reducer";
 import VisitAllContinents from "./VisitAllContinents";
 
@@ -22,8 +21,6 @@ class VisitAllContinentsCont extends React.Component {
 
 let mapStateToProps = (state) => ({
     profile: state.visitAllContinents_reducer.profile,
-    /* wind: state.tenthSpace_reducer.wind,
-     sys: state.tenthSpace_reducer.sys,*/
     isFetching: state.generalSetting_reducer.isFetching
 })
 
