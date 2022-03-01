@@ -14,13 +14,14 @@ class VisitAllContinentsCont extends React.Component {
 
 
         return <>
-            <VisitAllContinents/>
+            <VisitAllContinents cityAddParam={this.props.cityAddParam}/>
         </>
     }
 }
 
 let mapStateToProps = (state) => ({
     profile: state.visitAllContinents_reducer.profile,
+    cityAddParam: state.visitAllContinents_reducer.cityAddParam,
     isFetching: state.generalSetting_reducer.isFetching
 })
 
