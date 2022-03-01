@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import style from "./VisitAllContinents.module.css"
 import worldMap from './../../assets/images/worldMap.jpg'
+/*import checkingСity from './checkingCity'*/
 
 const VisitAllContinents = (props) => {
 
@@ -44,20 +45,16 @@ const VisitAllContinents = (props) => {
             setQueueСities(queueСities);
             setChoosingCity(!choosingCity);
             let prevСity = queueСities[setIndexOf(queueСities, thisCity) - 1];
-            checkingСity(prevСity, thisCity, numberCity);
-        } else {
-            if (thisCity == queueСities[queueСities.length - 1]) {
-                queueСities.splice(setIndexOf(queueСities, thisCity), 1);
-                setQueueСities(queueСities);
-                if (totalCostArr.length > 0) totalCostArr.length = totalCostArr.length - 1;
-                setTotalCostArr(totalCostArr);
-                const sumWithInitial = totalCostArr.reduce(
-                    (previousValue, currentValue) => previousValue + currentValue,
-                    0
-                );
-                setTotalCost(sumWithInitial);
-                setChoosingCity(!choosingCity);
-            }
+            return checkingСity(prevСity, thisCity, numberCity);
+        }
+        if (thisCity == queueСities[queueСities.length - 1]) {
+            queueСities.splice(setIndexOf(queueСities, thisCity), 1);
+            setQueueСities(queueСities);
+            (totalCostArr.length>0) && (totalCostArr.length = totalCostArr.length - 1);
+            setTotalCostArr(totalCostArr);
+            const sumWithInitial = totalCostArr.reduce((preVal, curVal) => preVal + curVal, 0);
+            setTotalCost(sumWithInitial);
+            setChoosingCity(!choosingCity);
         }
     }
 
