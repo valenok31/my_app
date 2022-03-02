@@ -24,17 +24,15 @@ const VisitAllContinents = (props) => {
     const checkingСity = (previousСity, thisCity, numberCity) => {
         if (!previousСity) return;
         cityAddParam.map((oneCity) => {
-            if (oneCity.name == thisCity) {
-                cityAddParam.map((f, r) => {
-                    if (setIndexOf(cityAddS, previousСity) == r) {
-                        add = Object.values(f.cost);
-                        totalCostArr.push(add[setIndexOf(cityAddS, thisCity)]);
-                        setTotalCostArr(totalCostArr);
-                        const sumWithInitial = totalCostArr.reduce((preVal, curVal) => preVal + curVal, 0);
-                        setTotalCost(sumWithInitial);
-                    }
-                })
-            }
+            if (oneCity.name != thisCity) return;
+            cityAddParam.map((f, r) => {
+                if (setIndexOf(cityAddS, previousСity) != r) return;
+                add = Object.values(f.cost);
+                totalCostArr.push(add[setIndexOf(cityAddS, thisCity)]);
+                setTotalCostArr(totalCostArr);
+                const sumWithInitial = totalCostArr.reduce((preVal, curVal) => preVal + curVal, 0);
+                setTotalCost(sumWithInitial);
+            })
         })
     }
 
@@ -50,7 +48,7 @@ const VisitAllContinents = (props) => {
         if (thisCity == queueСities[queueСities.length - 1]) {
             queueСities.splice(setIndexOf(queueСities, thisCity), 1);
             setQueueСities(queueСities);
-            (totalCostArr.length>0) && (totalCostArr.length = totalCostArr.length - 1);
+            (totalCostArr.length > 0) && (totalCostArr.length = totalCostArr.length - 1);
             setTotalCostArr(totalCostArr);
             const sumWithInitial = totalCostArr.reduce((preVal, curVal) => preVal + curVal, 0);
             setTotalCost(sumWithInitial);
