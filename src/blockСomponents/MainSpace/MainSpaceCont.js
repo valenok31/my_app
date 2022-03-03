@@ -20,7 +20,6 @@ const mapStateToProps = (props) => {
     }
 }
 
-
 export default connect(mapStateToProps, {overmous})(MainSpaceCont);
 
 

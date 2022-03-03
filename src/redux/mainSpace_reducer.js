@@ -11,27 +11,12 @@ let initialState = {
 
 const usersReducer = (state = initialState, action) => {
     switch (action.type) {
-
-        case PLUS:
-            return {
-                ...state,
-                currentPage: state.currentPage + 1,
-                isFetching: (state.currentPage % 2 === 0 ? false : true),
-            }
-        case MINUS:
-            return {
-                ...state,
-                currentPage: state.currentPage - 1,
-                isFetching: (state.currentPage % 2 === 0 ? false : true),
-            }
         case OVER_MOUS:
             return {
                 ...state,
                 setAnimationText: !state.setAnimationText,
                 symbol: [...state.symbol, action.symbol],
             }
-
-
         default:
             return state;
     }
