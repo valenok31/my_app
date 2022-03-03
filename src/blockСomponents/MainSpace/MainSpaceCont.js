@@ -1,19 +1,16 @@
 import React from "react";
 import {connect} from "react-redux";
-import {minus, plus, overmous} from "../../redux/mainSpace_reducer";
+import {overmous} from "../../redux/mainSpace_reducer";
 import MainSpace from "./MainSpace";
 
-
 class MainSpaceCont extends React.Component {
-
 
     render() {
         return <MainSpace {...this.props}
                           overmous={this.props.overmous}
-                          opacity = '0.5'/>
+                          opacity='0.5'/>
     }
 }
-
 
 const mapStateToProps = (props) => {
     return {
