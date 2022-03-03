@@ -6,6 +6,8 @@ import {NavLink} from "react-router-dom";
 let TopMenu = () => {
     return <div className={style.item}>
         <NavLink to='/home' className={style.nLink}>{'<-- Back'}</NavLink>
+
+
 {/*        <NavLink to='/main' className={style.nLink}>Falling letters</NavLink>
         <NavLink to='/secondary' className={style.nLink}>calculator</NavLink>
         <NavLink to='/third' className={style.nLink}>movement of the sun</NavLink>
