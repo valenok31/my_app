@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 import style from './TopMenu.module.css'
 import {NavLink} from "react-router-dom";
 
@@ -6,9 +6,16 @@ import {NavLink} from "react-router-dom";
 let TopMenu = () => {
     console.log(window.location.pathname);
 
+    const [locationPage, setLocationPage] = useState('');
+   const Locations = () => {
+        return setLocationPage(window.location.pathname);
+    }
+
+
+
     return <div className={style.item}>
-{/*        {!window.location.pathname == '/home' ? <NavLink to='/home' className={style.nLink}>{'<-- Back'}</NavLink> :
-            <NavLink to='/home' className={style.nLink}>{'home'}</NavLink>}*/}
+        {!locationPage == '/home' ? <NavLink to='/home' className={style.nLink}>{'<-- Back'}</NavLink> :
+            <NavLink to='/home' className={style.nLink}>{'home'}</NavLink>}
 
 
         {/*        <NavLink to='/main' className={style.nLink}>Falling letters</NavLink>

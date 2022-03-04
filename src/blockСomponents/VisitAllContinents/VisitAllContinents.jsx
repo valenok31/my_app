@@ -21,21 +21,14 @@ const VisitAllContinents = (props) => {
         return add.indexOf(number);
     }
 
-    const checkingСity = (previousСity, thisCity, numberCity) => {
+    const checkingСity = (previousСity, thisCity) => {
         if (!previousСity) return;
-        cityAddParam.map((oneCity) => {
-            if (oneCity.name != thisCity) return;
-            cityAddParam.map((f, r) => {
-                if (setIndexOf(cityAddS, previousСity) != r) return;
-                add = Object.values(f.cost);
-                totalCostArr.push(add[setIndexOf(cityAddS, thisCity)]);
-                setTotalCostArr(totalCostArr);
-                const sumWithInitial = totalCostArr.reduce((preVal, curVal) => preVal + curVal, 0);
-                setTotalCost(sumWithInitial);
-            })
-        })
+        let previousNumberСity = setIndexOf(cityAddS, previousСity);
+        totalCostArr.push(props.getCostCity(thisCity, previousNumberСity));
+        setTotalCostArr(totalCostArr);
+        const sumWithInitial = totalCostArr.reduce((preVal, curVal) => preVal + curVal, 0);
+        setTotalCost(sumWithInitial);
     }
-
 
     const choosingCityAdd = (thisCity, numberCity) => {
         if (setIndexOf(queueСities, thisCity) == -1) {
@@ -43,7 +36,7 @@ const VisitAllContinents = (props) => {
             setQueueСities(queueСities);
             setChoosingCity(!choosingCity);
             let prevСity = queueСities[setIndexOf(queueСities, thisCity) - 1];
-            return checkingСity(prevСity, thisCity, numberCity);
+            return checkingСity(prevСity, thisCity);
         }
         if (thisCity == queueСities[queueСities.length - 1]) {
             queueСities.splice(setIndexOf(queueСities, thisCity), 1);
