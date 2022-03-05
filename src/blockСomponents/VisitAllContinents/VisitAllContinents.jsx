@@ -51,9 +51,9 @@ const VisitAllContinents = (props) => {
 
     let CitiesInGame = cityAddS.map((a, numberCity, c) => {
         return <div className={style.city}
-                    style={{top: cityAddParam[numberCity].lat + 'px', left: cityAddParam[numberCity].lon + 'px'}}>
+                    style={{top: props.getCityParameter(numberCity, 'lat') + 'px', left: props.getCityParameter(numberCity, 'lon') + 'px'}}>
             <div id={a}
-                 title={props.cityAddParam[numberCity].title}
+                 title={props.getCityParameter(numberCity, 'title')}
                  className={(setIndexOf(queueСities, a) != -1 ? style.city__selected : style.city__no_selected)}
                  onClick={() => choosingCityAdd(a, numberCity)}>
                 {setIndexOf(queueСities, a) == -1 ? '' : `${setIndexOf(queueСities, a) + 1}`}
@@ -61,11 +61,10 @@ const VisitAllContinents = (props) => {
         </div>
     });
 
-
     return <>
         <div className={style.item}>
             <div>{totalСost}</div>
-            <img src={worldMap} alt='Worlt Map' className={style.world_map}/>
+            <img src={worldMap} alt='World Map' className={style.world_map}/>
             {CitiesInGame}
         </div>
         <button onClick={() => {

@@ -167,9 +167,21 @@ let initialState = {
             continent: 'Asia',
         },
     ],
-    getCostCity(thisCity,previousNumberСity){
+    getCostCity(thisCity, previousNumberСity) {
         return this.cityAddParam[previousNumberСity].cost[thisCity];
-},
+    },
+    getCityParameter(numberCity, param) {
+        switch (param) {
+            case 'lat':
+                return this.cityAddParam[numberCity].lat;
+            case 'lon':
+                return this.cityAddParam[numberCity].lon;
+            case 'title':
+                return this.cityAddParam[numberCity].title;
+            default:
+                return
+        }
+    },
 
 }
 
