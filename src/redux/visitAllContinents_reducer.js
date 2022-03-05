@@ -166,6 +166,13 @@ let initialState = {
     getCostCity(thisCity, previousNumberСity) {
         return this.cityAddParam[previousNumberСity].cost[thisCity];
     },
+    getPreviousNumberСity(previousСity) {
+        for (let i = 0; i < this.cityAddParam.length; i++) {
+            if (this.cityAddParam[i].name == previousСity) {
+                return i;
+            }
+        }
+    },
     getCityParameter(numberCity, param) {
         switch (param) {
             case 'lat':

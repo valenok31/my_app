@@ -5,17 +5,10 @@ import worldMap from './../../assets/images/worldMap.jpg'
 
 const VisitAllContinents = (props) => {
 
-    let cityAddParam = props.cityAddParam;
-    let cityAddS = [];
-    let add = [];
     const [choosingCity, setChoosingCity] = useState(false);
     const [queueСities, setQueueСities] = useState([]);
     const [totalСost, setTotalCost] = useState(0);
     const [totalCostArr, setTotalCostArr] = useState([]);
-
-    cityAddParam.map((f) => {
-        cityAddS.push(f.name);
-    })
 
     const setIndexOf = (number) => {
         return queueСities.indexOf(number);
@@ -23,8 +16,7 @@ const VisitAllContinents = (props) => {
 
     const checkingСity = (previousСity, thisCity) => {
         if (!previousСity) return;
-        let previousNumberСity = cityAddS.indexOf(previousСity);
-        totalCostArr.push(props.getCostCity(thisCity, previousNumberСity));
+        totalCostArr.push(props.getCostCity(thisCity, props.getPreviousNumberСity(previousСity)));
         setTotalCostArr(totalCostArr);
         const sumWithInitial = totalCostArr.reduce((preVal, curVal) => preVal + curVal, 0);
         setTotalCost(sumWithInitial);
@@ -49,7 +41,7 @@ const VisitAllContinents = (props) => {
         }
     }
 
-    let CitiesInGame = cityAddParam.map((a, numberCity) => {
+    let CitiesInGame = props.cityAddParam.map((a, numberCity) => {
         return <div className={style.city}
                     style={{top: props.getCityParameter(numberCity, 'lat') + 'px', left: props.getCityParameter(numberCity, 'lon') + 'px'}}>
             <div id={a.name}
@@ -71,7 +63,6 @@ const VisitAllContinents = (props) => {
             setQueueСities([]);
             setTotalCost(0);
             setTotalCostArr([]);
-            add = [];
             setChoosingCity(false);
         }
         }>Reset
