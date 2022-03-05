@@ -17,13 +17,13 @@ const VisitAllContinents = (props) => {
         cityAddS.push(f.name);
     })
 
-    const setIndexOf = (add, number) => {
-        return add.indexOf(number);
+    const setIndexOf = (number) => {
+        return queueСities.indexOf(number);
     }
 
     const checkingСity = (previousСity, thisCity) => {
         if (!previousСity) return;
-        let previousNumberСity = setIndexOf(cityAddS, previousСity);
+        let previousNumberСity = cityAddS.indexOf(previousСity);
         totalCostArr.push(props.getCostCity(thisCity, previousNumberСity));
         setTotalCostArr(totalCostArr);
         const sumWithInitial = totalCostArr.reduce((preVal, curVal) => preVal + curVal, 0);
@@ -31,15 +31,15 @@ const VisitAllContinents = (props) => {
     }
 
     const choosingCityAdd = (thisCity, numberCity) => {
-        if (setIndexOf(queueСities, thisCity) == -1) {
+        if (setIndexOf(thisCity) == -1) {
             queueСities.push(thisCity);
             setQueueСities(queueСities);
             setChoosingCity(!choosingCity);
-            let prevСity = queueСities[setIndexOf(queueСities, thisCity) - 1];
+            let prevСity = queueСities[setIndexOf(thisCity) - 1];
             return checkingСity(prevСity, thisCity);
         }
         if (thisCity == queueСities[queueСities.length - 1]) {
-            queueСities.splice(setIndexOf(queueСities, thisCity), 1);
+            queueСities.splice(setIndexOf(thisCity), 1);
             setQueueСities(queueСities);
             (totalCostArr.length > 0) && (totalCostArr.length = totalCostArr.length - 1);
             setTotalCostArr(totalCostArr);
@@ -49,14 +49,14 @@ const VisitAllContinents = (props) => {
         }
     }
 
-    let CitiesInGame = cityAddS.map((a, numberCity, c) => {
+    let CitiesInGame = cityAddParam.map((a, numberCity) => {
         return <div className={style.city}
                     style={{top: props.getCityParameter(numberCity, 'lat') + 'px', left: props.getCityParameter(numberCity, 'lon') + 'px'}}>
-            <div id={a}
+            <div id={a.name}
                  title={props.getCityParameter(numberCity, 'title')}
-                 className={(setIndexOf(queueСities, a) != -1 ? style.city__selected : style.city__no_selected)}
-                 onClick={() => choosingCityAdd(a, numberCity)}>
-                {setIndexOf(queueСities, a) == -1 ? '' : `${setIndexOf(queueСities, a) + 1}`}
+                 className={(setIndexOf(a.name) != -1 ? style.city__selected : style.city__no_selected)}
+                 onClick={() => choosingCityAdd(a.name, numberCity)}>
+                {setIndexOf(a.name) == -1 ? '' : `${setIndexOf(a.name) + 1}`}
             </div>
         </div>
     });
@@ -71,7 +71,6 @@ const VisitAllContinents = (props) => {
             setQueueСities([]);
             setTotalCost(0);
             setTotalCostArr([]);
-            cityAddS = [];
             add = [];
             setChoosingCity(false);
         }
