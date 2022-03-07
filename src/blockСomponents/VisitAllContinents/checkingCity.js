@@ -1,9 +1,8 @@
 import React from "react";
 
 
-    const checkingСity = (previousСity, thisCity, numberCity,props) => {
-
-
+    const checkingСity = (props) => {
+        return
     }
 
     export default checkingСity;

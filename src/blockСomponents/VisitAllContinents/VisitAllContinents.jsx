@@ -6,9 +6,9 @@ import worldMap from './../../assets/images/worldMap.jpg'
 const VisitAllContinents = (props) => {
 
     const [choosingCity, setChoosingCity] = useState(false);
-    const [queueСities, setQueueСities] = useState([]);
     const [totalСost, setTotalCost] = useState(0);
     const [totalCostArr, setTotalCostArr] = useState([]);
+    const [queueСities, setQueueСities] = useState([]);
 
     const setIndexOf = (number) => {
         return queueСities.indexOf(number);
@@ -38,6 +38,7 @@ const VisitAllContinents = (props) => {
             const sumWithInitial = totalCostArr.reduce((preVal, curVal) => preVal + curVal, 0);
             setTotalCost(sumWithInitial);
             setChoosingCity(!choosingCity);
+
         }
     }
 
