@@ -164,11 +164,11 @@ let initialState = {
         },
     ],
     getCostCity(thisCity, previousNumberСity) {
-        return this.cityAddParam[previousNumberСity].cost[thisCity];
+        return this._cityAddParam[previousNumberСity].cost[thisCity];
     },
     getPreviousNumberСity(previousСity) {
-        for (let i = 0; i < this.cityAddParam.length; i++) {
-            if (this.cityAddParam[i].name == previousСity) {
+        for (let i = 0; i < this._cityAddParam.length; i++) {
+            if (this._cityAddParam[i].name == previousСity) {
                 return i;
             }
         }
@@ -176,15 +176,18 @@ let initialState = {
     getCityParameter(numberCity, param) {
         switch (param) {
             case 'lat':
-                return this.cityAddParam[numberCity].lat;
+                return this._cityAddParam[numberCity].lat;
             case 'lon':
-                return this.cityAddParam[numberCity].lon;
+                return this._cityAddParam[numberCity].lon;
             case 'title':
-                return this.cityAddParam[numberCity].title;
+                return this._cityAddParam[numberCity].title;
             default:
                 return
         }
     },
+    getCityAddParam(){
+        return this._cityAddParam;
+    }
 }
 
 const usersReducer = (state = initialState, action) => {

@@ -14,6 +14,8 @@ const VisitAllContinents = (props) => {
         return queueСities.indexOf(number);
     }
 
+
+
     const checkingСity = (previousСity, thisCity) => {
         if (!previousСity) return;
         totalCostArr.push(props.getCostCity(thisCity, props.getPreviousNumberСity(previousСity)));
@@ -42,7 +44,11 @@ const VisitAllContinents = (props) => {
         }
     }
 
-    let CitiesInGame = props.cityAddParam.map((a, numberCity) => {
+
+ const CityAddParam = props._cityAddParam;
+
+
+    let CitiesInGame = CityAddParam.map((a, numberCity) => {
         return <div className={style.city}
                     style={{top: props.getCityParameter(numberCity, 'lat') + 'px', left: props.getCityParameter(numberCity, 'lon') + 'px'}}>
             <div id={a.name}

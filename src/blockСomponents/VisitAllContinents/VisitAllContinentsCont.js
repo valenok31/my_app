@@ -9,18 +9,20 @@ class VisitAllContinentsCont extends React.Component {
     }
 
     render() {
+
         return <>
             <VisitAllContinents
                 getCostCity={this.props.getCostCity}
                 getCityParameter={this.props.getCityParameter}
                 getPreviousNumberСity={this.props.getPreviousNumberСity}
-                cityAddParam={this.props.cityAddParam}/>
+                _cityAddParam={this.props._cityAddParam}/>
         </>
     }
 }
 
 let mapStateToProps = (state) => ({
-    cityAddParam: state.visitAllContinents_reducer._cityAddParam,
+/*    getCityAddParam: state.visitAllContinents_reducer.getCityAddParam,*/
+    _cityAddParam: state.visitAllContinents_reducer._cityAddParam,
     getCostCity: state.visitAllContinents_reducer.getCostCity,
     getCityParameter: state.visitAllContinents_reducer.getCityParameter,
     getPreviousNumberСity: state.visitAllContinents_reducer.getPreviousNumberСity,
