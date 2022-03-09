@@ -163,8 +163,12 @@ let initialState = {
             continent: 'Asia',
         },
     ],
+    getCityAddParam(x){
+        return this._cityAddParam[x];
+    },
     getCostCity(thisCity, previousNumberСity) {
         return this._cityAddParam[previousNumberСity].cost[thisCity];
+       /* return this.getCityAddParam(previousNumberСity).cost[thisCity];*/
     },
     getPreviousNumberСity(previousСity) {
         for (let i = 0; i < this._cityAddParam.length; i++) {
@@ -185,9 +189,7 @@ let initialState = {
                 return
         }
     },
-    getCityAddParam(){
-        return this._cityAddParam;
-    }
+
 }
 
 const usersReducer = (state = initialState, action) => {

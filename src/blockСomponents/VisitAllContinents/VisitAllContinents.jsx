@@ -15,7 +15,6 @@ const VisitAllContinents = (props) => {
     }
 
 
-
     const checkingСity = (previousСity, thisCity) => {
         if (!previousСity) return;
         totalCostArr.push(props.getCostCity(thisCity, props.getPreviousNumberСity(previousСity)));
@@ -40,17 +39,17 @@ const VisitAllContinents = (props) => {
             const sumWithInitial = totalCostArr.reduce((preVal, curVal) => preVal + curVal, 0);
             setTotalCost(sumWithInitial);
             setChoosingCity(!choosingCity);
-
         }
     }
 
-
- const CityAddParam = props._cityAddParam;
-
+    const CityAddParam = props._cityAddParam;
 
     let CitiesInGame = CityAddParam.map((a, numberCity) => {
         return <div className={style.city}
-                    style={{top: props.getCityParameter(numberCity, 'lat') + 'px', left: props.getCityParameter(numberCity, 'lon') + 'px'}}>
+                    style={{
+                        top: props.getCityParameter(numberCity, 'lat') + 'px',
+                        left: props.getCityParameter(numberCity, 'lon') + 'px'
+                    }}>
             <div id={a.name}
                  title={props.getCityParameter(numberCity, 'title')}
                  className={(setIndexOf(a.name) != -1 ? style.city__selected : style.city__no_selected)}
