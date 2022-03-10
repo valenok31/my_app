@@ -58,7 +58,7 @@ const Button = (props) => {
         </div>
         <div className={style.itemere}>
             <div className={style.example}>
-                {CodeTextJS}
+                {/*CodeTextJS*/}
             </div>
             <div className={style.workingArea}>
                 <textarea cols='40' rows='5' value={props.typedText} onChange={(e) => {
