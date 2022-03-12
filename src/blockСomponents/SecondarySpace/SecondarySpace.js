@@ -2,7 +2,6 @@ import React from "react";
 import s from "./SecondarySpace.module.css"
 import backSpaceIMG from "../../assets/images/2.png"
 
-
 class SecondarySpace extends React.Component {
     componentDidMount() {
         this.nameInput.focus();
@@ -68,27 +67,15 @@ class SecondarySpace extends React.Component {
             <div className={s.item}>
                 <div className={s.calculator_body}>
                     <div className={s.calculator_screen2}>{vei}</div>
-                    {/*                    <textarea ref={(input) => {
-                        this.nameInput = input;
-                    }} className={s.calculator_screen1} onChange={onPostChange} onKeyDown={onKeyCodeDown}
-                              value={this.props.text}/>*/}
                     <input type="text" ref={(input) => {
                         this.nameInput = input;
                     }} className={s.calculator_screen1} onChange={onPostChange} onKeyDown={onKeyCodeDown}
                            value={this.props.text}/>
-
                     {ButtonGenerator}
-
-
-
                 </div>
-
             </div>
-
         )
     }
 }
-
-
 
 export default SecondarySpace;

@@ -168,7 +168,6 @@ let initialState = {
     },
     getCostCity(thisCity, previousNumberСity) {
         return this._cityAddParam[previousNumberСity].cost[thisCity];
-       /* return this.getCityAddParam(previousNumberСity).cost[thisCity];*/
     },
     getPreviousNumberСity(previousСity) {
         for (let i = 0; i < this._cityAddParam.length; i++) {
@@ -189,7 +188,6 @@ let initialState = {
                 return
         }
     },
-
 }
 
 const usersReducer = (state = initialState, action) => {
