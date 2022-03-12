@@ -2,14 +2,12 @@ const UP_DATE_NEW_POST_TEXT = 'UP_DATE_NEW_POST_TEXT';
 const CLICK_RESULT = 'CLICK_RESULT';
 const CLICK_NAMBERS = 'CLICK_NAMBERS';
 
-
 let initialState = {
     value_a: 0,
     value_b: '',
     matchControl: '',
     text: '',
 };
-
 
 const secondarySpace_reducer = (state = initialState, action) => {
     switch (action.type) {
@@ -85,38 +83,6 @@ const secondarySpace_reducer = (state = initialState, action) => {
                 case  'C':
                     return {...initialState,}
                 case  '=' :
-                    /*                    if (action.buttonValue === '+') {
-                                            return {
-                                                ...state,
-                                                text: '',
-                                                value_a: state.value_a + Number(state.text),
-                                                matchControl: action.buttonValue,
-                                            }
-                                        }
-                                        if (action.buttonValue === '-') {
-                                            return {
-                                                ...state,
-                                                text: '',
-                                                value_a: state.value_a - Number(state.text),
-                                                matchControl: action.buttonValue,
-                                            }
-                                        }
-                                        if (action.buttonValue === '/') {
-                                            return {
-                                                ...state,
-                                                text: '',
-                                                value_a: Number(state.value_a),
-                                                matchControl: action.buttonValue,
-                                            }
-                                        }
-                                        if (action.buttonValue === '*') {
-                                            return {
-                                                ...state,
-                                                text: '',
-                                                value_a: Number(state.value_a),
-                                                matchControl: action.buttonValue,
-                                            }
-                                        }*/
                     return {
                         ...state,
                         matchControl: action.buttonValue,
