@@ -16,8 +16,7 @@ let TopMenu = () => {
     return <div className={style.item}>
         {!locationPage == '/home' ? <NavLink to='/home' className={style.nLink}>{'<-- Back'}</NavLink> :
             <NavLink to='/home' className={style.nLink}>{'home'}</NavLink>}
-
-
+            <NavLink to='/nan' className={style.nLink}>NaN</NavLink>
         {/*        <NavLink to='/main' className={style.nLink}>Falling letters</NavLink>
         <NavLink to='/secondary' className={style.nLink}>calculator</NavLink>
         <NavLink to='/third' className={style.nLink}>movement of the sun</NavLink>

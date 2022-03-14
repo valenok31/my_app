@@ -12,6 +12,7 @@ import NinthSpaceCont from "./blockСomponents/NinthSpace/NinthSpaceCont";
 import TenthSpaceCont from "./blockСomponents/TenthSpace/TenthSpaceCont";
 import KillerOfFliesCont from "./blockСomponents/KillerOfFlies/KillerOfFliesCont";
 import VisitAllContinentsCont from "./blockСomponents/VisitAllContinents/VisitAllContinentsCont";
+import NaN from "./blockСomponents/NaN/NaN";
 
 
 let App = (props) => {
@@ -31,6 +32,7 @@ let App = (props) => {
                     <Route path="/tenth" element={<TenthSpaceCont/>}/>
                     <Route path="/killerofflies" element={<KillerOfFliesCont/>}/>
                     <Route path="/visitAllContinents" element={<VisitAllContinentsCont/>}/>
+                    <Route path="/nan" element={<NaN/>}/>
                 </Routes>
             </div>
         </div>
