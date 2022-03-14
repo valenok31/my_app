@@ -18,7 +18,7 @@ let initialState = {
             lon: 320,
             continent: 'North America',
         },
-        {
+/*        {
             name: 'OVB',
             title: 'Novosibirsk',
             cost: {
@@ -35,7 +35,7 @@ let initialState = {
             lat: 200,
             lon: 670,
             continent: 'Asia',
-        },
+        },*/
         {
             name: 'CPT',
             title: 'Cape Town',
